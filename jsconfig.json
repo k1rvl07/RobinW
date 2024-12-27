@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "paths": {
+            "@components/*": [
+                "react/components/*"
+            ],
+            "@img/*": [
+                "assets/img/*"
+            ],
+            "@svg/*": [
+                "assets/svg/*"
+            ],
+            "@style_scss/*": [
+                "style_scss/*"
+            ],
+            "@data/*": [
+                "data/*"
+            ]
+        }
+    },
+    "include": [
+        "src"
+    ]
+}
