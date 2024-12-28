@@ -1,0 +1,41 @@
+@use '../../configuration/configuration.scss' as *;
+
+.hero {
+    background-image: url('@assets/img/hero-sm.png');
+    background-repeat: repeat-x;
+    background-position: center top;
+    @include respond-to(tablet) {
+        background-image: url('@assets/img/hero-md.png');
+        background-position: center left;
+        background-repeat: no-repeat;
+        @include spacing(padding, y, 170px);
+    } 
+    @include respond-to(desktop) {
+        background-image: url('@assets/img/hero-lg.png');
+        @include spacing(padding, y, 224px);
+    }
+    &__container {
+        @include respond-to(tablet) {
+            @include size(default, 408px, 475px);
+            @include flex(on, column, $justify: space-between);
+            @include spacing(margin, left, auto);
+        }
+        @include respond-to(desktop) {
+            @include size(default, 738px, 368px);
+        }
+    }
+    &__title {
+        @extend %hero-title;
+        @include spacing(padding, (top, bottom), 336px, 16px);
+        @include respond-to(tablet) {
+            @include spacing(padding, (top, bottom), 0px, 0px);
+        }
+        &-span {
+            opacity: 0.5;
+            
+        }
+    }
+    &__text {
+        @extend %hero-text;
+    } 
+}

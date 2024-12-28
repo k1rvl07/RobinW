@@ -26,7 +26,12 @@
         font-style: $font-style;
         font-size: $font-size;
         color: $color;
-        @if $font-size != $desktop-font-size {
+        @if $font-size != $tablet-font-size {
+            @include respond-to(tablet) {
+                font-size: $tablet-font-size;
+            }
+        }
+        @if $tablet-font-size != $desktop-font-size {
             @include respond-to(desktop) {
                 font-size: $desktop-font-size;
             }
