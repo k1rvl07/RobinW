@@ -3,9 +3,10 @@
 .header {
     &__container {
         @include spacing(padding, y, 24px);
-        @include grid-setup(on, 2, 2, "logo burger" "nav nav");
+        @include grid-setup(on, repeat(2, auto), repeat(2, auto), "logo burger" "nav nav");
         @include respond-to(tablet) {
-            @include grid-setup(on, 2, 1, "logo nav");
+            @include grid-setup(on, auto, repeat(2, auto), "logo nav");
+            @include spacing(padding, y, 0px);
         }
     }
     &__button {
@@ -21,6 +22,7 @@
     }
     &__logo {
         grid-area: logo;
+        @include grid-item-alignment(null, center);
     }
     &__nav {
         grid-area: nav;
@@ -40,6 +42,7 @@
     &__link {
         @include respond-to(tablet) {
             @include spacing(padding, (x, y), 24px, 32px);
+            @include flex(on, $justify: center);
             transition: all 0.5s ease-in-out;
             &:hover {
                 background-color: color("primary");
