@@ -1,0 +1,51 @@
+@use '../configuration/configuration.scss' as *;
+
+.header {
+    &__container {
+        @include spacing(padding, y, 24px);
+        @include grid-setup(on, 2, 2, "logo burger" "nav nav");
+        @include respond-to(tablet) {
+            @include grid-setup(on, 2, 1, "logo nav");
+        }
+    }
+    &__button {
+        grid-area: burger;
+        @include grid-item-alignment(right, center);
+        @include size(default, null, 100%);
+        @include respond-to(tablet) {
+            display: none;
+        }
+        &-img {
+            @include flex(on, $align-items: center);
+        }
+    }
+    &__logo {
+        grid-area: logo;
+    }
+    &__nav {
+        grid-area: nav;
+        display: none;
+    }
+    &__list {
+        @include flex(on, $justify: space-between);
+        @include spacing(margin, top, 24px);
+        @include respond-to(tablet) {
+            @include spacing(margin, top, 0px);
+            @include flex($justify: flex-end);
+        }
+    }
+    &__item {
+        @extend %header-nav;
+    }
+    &__link {
+        @include respond-to(tablet) {
+            @include spacing(padding, (x, y), 24px, 32px);
+            transition: all 0.5s ease-in-out;
+            &:hover {
+                background-color: color("primary");
+                font-weight: font-weight("bold");
+                transition: all 0.5s ease-in-out;
+            }
+        }
+    }
+}

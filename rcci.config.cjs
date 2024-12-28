@@ -5,8 +5,11 @@ module.exports = {
     multiProject: false /* Enable searching projects with component folder path */,
     skipFinalStep: false /* Toggle final step agreement */,
     checkExistenceOnCreate: false /* Enable check folder for components which can be replaced */,
-    folderPath:
-      "src/components" /* Destination path or array of paths to create components */,
+    folderPath: [
+      "src/components",
+      "src/pages",
+      "src/hooks",
+    ], /* Destination path or array of paths to create components */
     templatesFolder: "templates" /* Folder with templates */,
     templates: [
       {

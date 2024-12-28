@@ -3,6 +3,8 @@
 // Обнуление дефолтных стилей
 @forward "./null.scss";
 // Общие стили
-@forward "./common_styles.scss";
+@forward "./shared/common.scss";
+// Шапка
+@forward "./shared/header.scss";
 // Главная страница
-@forward "./pages/Index.scss";
+@forward "./pages/main.scss";

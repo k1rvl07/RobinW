@@ -1,0 +1,13 @@
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
+@use "sass:meta";
+
+@use "functions.scss" as *;
+
+$text-list: (
+    "header-nav" "Sen" regular normal color("text") 16px 16px 16px,
+);
+
+$dynamic-text-list: (
+);

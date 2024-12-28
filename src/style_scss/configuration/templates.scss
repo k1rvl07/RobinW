@@ -1,0 +1,98 @@
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
+@use "sass:meta";
+
+@use "./lists.scss" as *;
+@use "./mixins.scss" as *;
+@use "./functions.scss" as *;
+
+
+// Комплексные шаблоны
+
+@each $item in $text-list {
+    $name: list.nth($item, 1);
+    $font-family: list.nth($item, 2);
+    $font-weight: list.nth($item, 3);
+    $font-style: list.nth($item, 4);
+    $color: list.nth($item, 5);
+    $font-size: list.nth($item, 6);
+    $tablet-font-size: list.nth($item, 7);
+    $desktop-font-size: list.nth($item, 8);
+
+    %#{$name} {
+        font-family: $font-family;
+        font-weight: font-weight($font-weight);
+        font-style: $font-style;
+        font-size: $font-size;
+        color: $color;
+        @if $font-size != $desktop-font-size {
+            @include respond-to(desktop) {
+                font-size: $desktop-font-size;
+            }
+        }
+    }
+}
+
+@each $item in $dynamic-text-list {
+    $name: list.nth($item, 1);
+    $font-family: list.nth($item, 2);
+    $font-weight: list.nth($item, 3);
+    $font-style: list.nth($item, 4);
+    $color: list.nth($item, 5);
+    $hover-color: list.nth($item, 6);
+    $active-color: list.nth($item, 7);
+    $font-size: list.nth($item, 8);
+    $desktop-font-size: list.nth($item, 9);
+
+    %#{$name} {
+        @extend %simple-transition;
+        font-family: $font-family;
+        font-weight: font-weight($font-weight);
+        font-style: $font-style;
+        color: $color;
+        font-size: $font-size;
+        &:hover {
+            color: $hover-color;
+        }
+        &:active {
+            color: $active-color;
+        }
+        @if $font-size != $desktop-font-size {
+            @include respond-to(desktop) {
+                font-size: $desktop-font-size;
+            }
+        }
+    }
+}
+
+// Простые шаблоны
+
+%container {
+    @include size(default, 320px);
+    @include spacing(margin, x, auto);
+    @include respond-to(tablet) {
+        @include size(default, 688px);
+    }
+    @include respond-to(desktop) {
+        @include size(default, 1296px);
+    }
+}
+
+%slider-window {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    @include respond-to("desktop") {
+        overflow-x: hidden;
+    }
+}
+
+%slides {
+    transition: transform 0.5s ease-in-out;
+}
+
+%slide {
+    scroll-snap-align: start;
+    position: relative;
+}

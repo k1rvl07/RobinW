@@ -2,8 +2,17 @@
     "compilerOptions": {
         "baseUrl": "src",
         "paths": {
+            "@assets/*": [
+                "assets/*"
+            ],
             "@components/*": [
-                "react/components/*"
+                "components/*"
+            ],
+            "@hooks/*": [
+                "hooks/*"
+            ],
+            "@pages/*": [
+                "pages/*"
             ],
             "@img/*": [
                 "assets/img/*"
