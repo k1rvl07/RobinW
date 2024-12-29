@@ -1,0 +1,44 @@
+@use "../configuration/configuration.scss" as *;
+
+.social-section-white {
+    background-color: color("peach accent");
+    @include size(default, null, 818px);
+    @include respond-to(tablet) {
+        @include size(default, null, fit-content);    
+    }
+    &__container {
+        @include respond-to(tablet) {
+            @include flex(on, row, $justify: space-between);
+            @include size(default, null, 600px);
+        }
+    }
+    &__content {
+        @include size(default, null, 320px);
+        @include flex(on, column);
+        @include spacing((margin, padding), (top, bottom), null, 48px, 48px, null);
+        @include respond-to(tablet) {
+            @include size(default, 304px, 440px);
+            @include spacing((padding, margin), y, 0px, 0px);
+            @include flex-item-alignment($align-self: center);
+        }
+        @include respond-to(desktop) {
+            @include size(default, 576px, 360px);
+        }
+    }
+    &__text {
+        @include spacing(margin, (top, bottom), 24px, auto);
+    }
+    &__img {
+        position: absolute;
+        right: calc(50% - 180px);
+        @include size(default, 360px, 450px);
+        @include image-fit(cover, center);
+        @include respond-to(tablet) {
+            @include size(default, 384px, 600px);
+            right: 0;
+        }
+        @include respond-to(desktop) {
+            @include size(default, 720px, null);
+        }
+    }
+}

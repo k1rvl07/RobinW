@@ -46,24 +46,28 @@
     $font-style: list.nth($item, 4);
     $color: list.nth($item, 5);
     $hover-color: list.nth($item, 6);
-    $active-color: list.nth($item, 7);
-    $font-size: list.nth($item, 8);
+    $font-size: list.nth($item, 7);
+    $tablet-font-size: list.nth($item, 8);
     $desktop-font-size: list.nth($item, 9);
 
     %#{$name} {
-        @extend %simple-transition;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
         font-family: $font-family;
         font-weight: font-weight($font-weight);
         font-style: $font-style;
         color: $color;
         font-size: $font-size;
         &:hover {
+            transition: all 0.5s ease-in-out;
             color: $hover-color;
         }
-        &:active {
-            color: $active-color;
+        @if $font-size != $tablet-font-size {
+            @include respond-to(tablet) {
+                font-size: $tablet-font-size;
+            }
         }
-        @if $font-size != $desktop-font-size {
+        @if $tablet-font-size != $desktop-font-size {
             @include respond-to(desktop) {
                 font-size: $desktop-font-size;
             }

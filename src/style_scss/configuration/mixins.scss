@@ -83,9 +83,13 @@
     }
 }
 
-@mixin flex-item($align-self: null, $flex-grow: null, $flex-shrink: null, $flex-basis: null, $order: null) {
+@mixin flex-item-alignment($align-self: null, $justify-self: null, $flex-grow: null, $flex-shrink: null, $flex-basis: null, $order: null) {
     @if $align-self != null {
         align-self: $align-self;
+    }
+
+    @if $justify-self != null {
+        justify-self: $justify-self;
     }
 
     @if $flex-grow != null {

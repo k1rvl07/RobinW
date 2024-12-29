@@ -1,26 +1,26 @@
-@use '../../configuration/configuration.scss' as *;
+@use "../../configuration/configuration.scss" as *;
 
 .hero {
-    background-image: url('@assets/img/hero-sm.png');
-    background-repeat: repeat-x;
-    background-position: center top;
-    @include spacing(padding, bottom, 40px);
+    @include spacing(padding, bottom, 48px);
     @include respond-to(tablet) {
-        background-image: url('@assets/img/hero-md.png');
-        background-position: center left;
-        background-repeat: no-repeat;
-        @include spacing(padding, y, 170px);
-    } 
-    @include respond-to(desktop) {
-        background-image: url('@assets/img/hero-lg.png');
-        @include spacing(padding, y, 224px);
+        @include spacing(padding, y, 84px);
     }
     &__container {
-        @include spacing(padding, top, 336px);
+        @include size(default, null, 604px);
+        @include flex(on, column);
         @include respond-to(tablet) {
+            @include flex($direction: row-reverse, $justify: space-between);
+            @include size(default, null, 650px);
+        }
+    }
+    &__content {
+        @include spacing(margin, top, auto);
+        @include respond-to(tablet) {
+            @include spacing(margin, top, 0px);
+            @include flex-item-alignment($align-self: center);
             @include size(default, 408px, 475px);
             @include flex(on, column, $justify: space-between);
-            @include spacing((margin, padding), (left, top), auto, null, null, 0px);
+            z-index: 1;
         }
         @include respond-to(desktop) {
             @include size(default, 738px, 368px);
@@ -34,10 +34,22 @@
         }
         &-span {
             opacity: 0.5;
-            
+        }
+    }
+    &__img {
+        position: absolute;
+        left: calc(50% - 180px);
+        @include image-fit(cover, center);
+        @include size(default, 360px, 288px);
+        @include respond-to(tablet) {
+            left: 0;
+            @include size(default, 384px, 650px);
+        }
+        @include respond-to(desktop) {
+            @include size(default, 750px, null);
         }
     }
     &__text {
         @extend %hero-text;
-    } 
+    }
 }

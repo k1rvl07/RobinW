@@ -13,8 +13,14 @@ body {
     &__subheading {
         @extend %subheading;
     }
-    &__heading-second {
-        @extend %heading-second;
+}
+
+.heading-second {
+    &-white {
+        @extend %heading-second-white;
+    }
+    &-black {
+        @extend %heading-second-black;
     }
 }
 
@@ -25,5 +31,18 @@ body {
 .text {
     &-black {
         @extend %text-black;
+    }
+    &-white {
+        @extend %text-white;
+    }
+}
+
+.link {
+    &-black {
+        @extend %link-black;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
