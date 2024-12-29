@@ -32,7 +32,14 @@ export const Main = () => {
                     link='More about me'
                     href='#'
                     img={imgImages.sphere} />
-            </main>
+                <SocialSectionWhite
+                    heading="Instagram"
+                    text="If you area a person who enjoys photography, then I highly recommend that you check out my Instagram. I’m an avid traveller and I capture the best moments that I would love to cherish with the world"
+                    link='More about me'
+                    href='#'
+                    img={imgImages.plane}
+                />
+        </main >
         </>
     );
 };
