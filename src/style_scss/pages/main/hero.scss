@@ -5,6 +5,9 @@
     @include respond-to(tablet) {
         @include spacing(padding, y, 84px);
     }
+    @include respond-to(desktop) {
+        @include spacing(padding, bottom, 120px);
+    }
     &__container {
         @include size(default, null, 604px);
         @include flex(on, column);

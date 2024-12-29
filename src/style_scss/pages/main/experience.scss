@@ -1,12 +1,12 @@
 @use "../../configuration/configuration.scss" as *;
 
 .experience {
-    @include spacing(padding, y, 40px);
+    @include spacing(padding, bottom, 40px);
     @include respond-to(tablet) {
-        @include spacing(padding, y, 80px);
+        @include spacing(padding, bottom, 80px);
     }
     @include respond-to(desktop) {
-        @include spacing(padding, y, 120px);
+        @include spacing(padding, bottom, 120px);
     }
     .heading-container {
         @include respond-to(desktop) {

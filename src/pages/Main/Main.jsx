@@ -1,12 +1,12 @@
 import React from "react";
 
-import { imgImages } from "@assets";
+import { imgImages, svgImages } from "@assets";
 import components from "@components";
 import data from "@data";
 
 export const Main = () => {
-    const { Header, Section, ExperienceCard, SocialSectionWhite } = components;
-    const { experienceCard } = data;
+    const { Header, Section, ExperienceCard, SocialSectionWhite, SkillsetCard } = components;
+    const { experienceCard, skillsetCard } = data;
     return (
         <>
             <Header />
@@ -30,16 +30,21 @@ export const Main = () => {
                     heading="Philosophy & values"
                     text="I think everyone wants the same thing - relationship with humanity, peace with the metaphysical, and experience with the universe. I try to grasp these things with my values: authenticity, creativity, & hospitality."
                     link='More about me'
-                    href='#'
                     img={imgImages.sphere} />
+                <Section tagName="section" className="skillset" isHasHeading={true} heading="Skillset" headingType="white" isHasText={true} text="With skills in over 4 different fields of design, I am the perfect person to hire when it comes to a full fledged project. Whatever your needs are, I can pretty much take on any challenge." textType="black">
+                    <div className="card__container">
+                        {skillsetCard.map(skillsetCard => (
+                            <SkillsetCard key={skillsetCard.id} icon={svgImages[skillsetCard.icon]} title={skillsetCard.title} text={skillsetCard.text} />
+                        ))}
+                    </div>
+                </Section>
                 <SocialSectionWhite
                     heading="Instagram"
                     text="If you area a person who enjoys photography, then I highly recommend that you check out my Instagram. I’m an avid traveller and I capture the best moments that I would love to cherish with the world"
                     link='More about me'
-                    href='#'
                     img={imgImages.plane}
                 />
-        </main >
+            </main >
         </>
     );
 };

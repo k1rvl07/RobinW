@@ -3,15 +3,10 @@ import components from "@components"
 import classNames from "classnames";
 import { Link } from "@components/Link";
 
-export const SocialSectionWhite = ({ heading, text, img, href, link }) => {
-    const { Section, Text, HeadingSecond } = components;
+export const SocialSectionWhite = ({ heading, text, img, href = "#", link }) => {
+    const { Section } = components;
     return (
-        <Section tagName="section" className={classNames("social-section-white")}>
-            <div className="social-section-white__content">
-                <HeadingSecond type="black">{heading}</HeadingSecond>
-                <Text type="white" className="social-section-white__text">{text}</Text>
-                <Link className="social-section-white__link" href={href} type="black">{link}</Link>
-            </div>
+        <Section isHasText={true} isHasLink={true} text={text} textType="white" link={link} linkType="black" isHasHeading={true} heading={heading} href={href} tagName="section" className={classNames("social-section-white")}>
             <img className="social-section-white__img" src={img} alt="" />
         </Section>
     )

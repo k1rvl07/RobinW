@@ -12,7 +12,7 @@
             @include size(default, null, 600px);
         }
     }
-    &__content {
+    &__main-content {
         @include size(default, null, 320px);
         @include flex(on, column);
         @include spacing((margin, padding), (top, bottom), null, 48px, 48px, null);
@@ -40,5 +40,8 @@
         @include respond-to(desktop) {
             @include size(default, 720px, null);
         }
+    }
+    &__link {
+        @include size(default, fit-content, null);
     }
 }

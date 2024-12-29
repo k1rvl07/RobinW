@@ -31,9 +31,15 @@ body {
 .text {
     &-black {
         @extend %text-black;
+        &-small {
+            @extend %text-black-small;
+        }
     }
     &-white {
         @extend %text-white;
+        &-small {
+            @extend %text-white-small;
+        }
     }
 }
 
