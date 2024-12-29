@@ -1,7 +1,7 @@
 import React from "react";
 import components from "@components";
 import { svgImages } from '@assets';
-import { data } from '@data';
+import data from '@data';
 import hooks from "@hooks";
 
 export const Header = () => {

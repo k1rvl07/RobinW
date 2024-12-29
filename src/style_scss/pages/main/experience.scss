@@ -1,0 +1,43 @@
+@use "../../configuration/configuration.scss" as *;
+
+.experience {
+    @include spacing(padding, y, 40px);
+    @include respond-to(tablet) {
+        @include spacing(padding, y, 80px);
+    }
+    @include respond-to(desktop) {
+        @include spacing(padding, y, 120px);
+    }
+    .heading-container {
+        @include respond-to(desktop) {
+            @include size(default, 689px);
+        }
+    }
+    .card {
+        @include spacing(margin, top, 40px);
+        @include respond-to(tablet) {
+            @include size(default, 200px);
+        }
+        @include respond-to(desktop) {
+            @include size(default, 416px);
+        }
+        &__container {
+            @include respond-to(tablet) {
+                @include flex(on, $justify: space-between);
+            }
+        }
+        &__title {
+            @include spacing(margin, bottom, 16px);
+            @include respond-to(tablet) {
+                @include size(default, 136px);
+                @include spacing(margin, bottom, 24px);
+            }
+            @include respond-to(desktop) {
+                @include size(default, auto);
+            }
+        }
+        &__num {
+            @extend %experience-card-num;
+        }
+    }
+}

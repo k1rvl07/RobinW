@@ -1,0 +1,1 @@
+export {HeadingSecond} from './HeadingSecond'

@@ -14,5 +14,4 @@ const svgImages = Object.keys(svgModules).reduce((images, path) => {
   return images;
 }, {});
 
-// Экспорт объединенного объекта
 export { imgImages, svgImages };

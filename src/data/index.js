@@ -7,4 +7,4 @@ const data = Object.keys(dataModules).reduce((acc, path) => {
 }, {});
 
 
-export { data };
+export default data;
