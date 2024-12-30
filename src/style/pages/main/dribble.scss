@@ -8,6 +8,13 @@
     @include respond-to(desktop) {
         @include spacing(padding, y, 120px);
     }
+    &__container {
+        @include respond-to(desktop) {
+            @include size(default, fit-content);
+            @include flex(on, column);
+            @include spacing(margin, x, auto);
+        }
+    }
     &__img {
         @include image-fit(cover, center);
         @include size(default, null, 516px);
