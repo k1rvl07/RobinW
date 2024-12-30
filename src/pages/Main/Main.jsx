@@ -1,12 +1,14 @@
 import React from "react";
-
-import { imgImages, svgImages } from "@assets";
-import components from "@components";
-import data from "@data";
+import { imgImages, svgImages, components, data, hooks } from "@modules";
 
 export const Main = () => {
     const { Header, Section, ExperienceCard, SocialSectionWhite, SkillsetCard } = components;
-    const { experienceCard, skillsetCard } = data;
+    const { experienceCards, skillsetCards, sponsorSlides } = data;
+    const { useInfiniteScroll, useScreenSize } = hooks;
+    const { width: screenWidth } = useScreenSize();
+    const { containerRef } = useInfiniteScroll(2, 1440);
+    const duplicatedSlides = screenWidth >= 1440 ? [...sponsorSlides, ...sponsorSlides] : sponsorSlides;
+
     return (
         <>
             <Header />
@@ -21,7 +23,7 @@ export const Main = () => {
                 <Section tagName="section" className="experience" isHasHeading={true} heading="Companies I have worked
                         for in the past" headingType="white" isHasSubHeading={true} subheading="WORK EXPERIENCE">
                     <div className="card__container">
-                        {experienceCard.map(experienceCard => (
+                        {experienceCards.map(experienceCard => (
                             <ExperienceCard key={experienceCard.id} experienceCard={experienceCard} />
                         ))}
                     </div>
@@ -33,9 +35,20 @@ export const Main = () => {
                     img={imgImages.sphere} />
                 <Section tagName="section" className="skillset" isHasHeading={true} heading="Skillset" headingType="white" isHasText={true} text="With skills in over 4 different fields of design, I am the perfect person to hire when it comes to a full fledged project. Whatever your needs are, I can pretty much take on any challenge." textType="black">
                     <div className="card__container">
-                        {skillsetCard.map(skillsetCard => (
+                        {skillsetCards.map(skillsetCard => (
                             <SkillsetCard key={skillsetCard.id} icon={svgImages[skillsetCard.icon]} title={skillsetCard.title} text={skillsetCard.text} />
                         ))}
+                    </div>
+                </Section>
+                <Section tagName="section" className="sponsor" isHasContainer={false}>
+                    <div className="slider" ref={containerRef}>
+                        <div className="slider__slides">
+                            {duplicatedSlides.map((sponsorSlide, index) => (
+                                <div key={`${sponsorSlide.id}-${index}`} className="slider__slide">
+                                    <img src={svgImages[sponsorSlide.icon]} alt="" loading="lazy" />
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </Section>
                 <SocialSectionWhite
@@ -44,7 +57,7 @@ export const Main = () => {
                     link='More about me'
                     img={imgImages.plane}
                 />
-            </main >
+            </main>
         </>
     );
 };

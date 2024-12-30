@@ -1,6 +1,6 @@
-import '@style_scss/global.scss';
+import '@style/global.scss';
 
-import pages from "@pages";
+import { pages } from '@modules';
 
 export const App = () => {
     const { Main } = pages;

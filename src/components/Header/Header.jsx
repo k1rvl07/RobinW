@@ -1,15 +1,12 @@
 import { useState } from "react";
-import components from "@components";
-import { svgImages } from '@assets';
-import data from '@data';
-import hooks from "@hooks";
+import { components, svgImages, data, hooks } from "@modules";
 
 export const Header = () => {
     const { Section, HeaderNav } = components;
     const { headerNavElems } = data;
-    const { UseScreenSize } = hooks;
+    const { useScreenSize } = hooks;
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { width } = UseScreenSize();
+    const { width } = useScreenSize();
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);

@@ -1,5 +1,5 @@
 import React from "react"
-import components from "@components"
+import { components } from "@modules";
 
 export const ExperienceCard = ({ experienceCard }) => {
     const { HeadingThird, TextSmall } = components;

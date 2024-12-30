@@ -1,10 +1,11 @@
 import React from "react";
-import components from '@components';
+import { components } from '@modules';
 
 export const Section = ({
   tagName: Tag = "section",
   className,
   children,
+  isHasContainer = true,
   isHasHeading = false,
   heading,
   isHasSubHeading = false,
@@ -22,64 +23,71 @@ export const Section = ({
 
   const shouldWrapContent = isHasHeading && (isHasText || isHasLink);
 
-  return (
-    <Tag className={className}>
-      <Container>
-        <div className={`${className}__container`}>
-          {shouldWrapContent ? (
-            <div className={`${className}__main-content`}>
-              {isHasHeading && (
-                <HeadingSecond
-                  isHasSubHeading={isHasSubHeading}
-                  subheading={subheading}
-                  headingType={headingType}
-                >
-                  {heading}
-                </HeadingSecond>
-              )}
-
-              {isHasText && (
-                <Text type={textType} className={`${className}__text`}>
-                  {text}
-                </Text>
-              )}
-
-              {isHasLink && (
-                <Link href={href} type={linkType} className={`${className}__link`}>
-                  {link}
-                </Link>
-              )}
-            </div>
-          ) : (
-            <>
-              {isHasHeading && (
-                <HeadingSecond
-                  isHasSubHeading={isHasSubHeading}
-                  subheading={subheading}
-                  headingType={headingType}
-                >
-                  {heading}
-                </HeadingSecond>
-              )}
-
-              {isHasText && (
-                <Text type={textType} className={`${className}__text`}>
-                  {text}
-                </Text>
-              )}
-
-              {isHasLink && (
-                <Link href={href} type={linkType} className={`${className}__link`}>
-                  {link}
-                </Link>
-              )}
-            </>
+  const content = (
+    <>
+      {shouldWrapContent ? (
+        <div className={`${className}__main-content`}>
+          {isHasHeading && (
+            <HeadingSecond
+              isHasSubHeading={isHasSubHeading}
+              subheading={subheading}
+              headingType={headingType}
+            >
+              {heading}
+            </HeadingSecond>
           )}
 
-          {/* Дочерние элементы */}
-          {children}
+          {isHasText && (
+            <Text type={textType} className={`${className}__text`}>
+              {text}
+            </Text>
+          )}
+
+          {isHasLink && (
+            <Link href={href} type={linkType} className={`${className}__link`}>
+              {link}
+            </Link>
+          )}
         </div>
-      </Container>
+      ) : (
+        <>
+          {isHasHeading && (
+            <HeadingSecond
+              isHasSubHeading={isHasSubHeading}
+              subheading={subheading}
+              headingType={headingType}
+            >
+              {heading}
+            </HeadingSecond>
+          )}
+
+          {isHasText && (
+            <Text type={textType} className={`${className}__text`}>
+              {text}
+            </Text>
+          )}
+
+          {isHasLink && (
+            <Link href={href} type={linkType} className={`${className}__link`}>
+              {link}
+            </Link>
+          )}
+        </>
+      )}
+
+      {children}
+    </>
+  );
+
+  return (
+    <Tag className={className}>
+      {isHasContainer ? (
+        <Container>
+          <div className={`${className}__container`}>{content}</div>
+        </Container>
+      ) : (
+        content
+      )}
     </Tag>
   );
 };

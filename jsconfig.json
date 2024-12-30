@@ -20,11 +20,17 @@
             "@svg/*": [
                 "assets/svg/*"
             ],
-            "@style_scss/*": [
-                "style_scss/*"
+            "@style/*": [
+                "style/*"
             ],
             "@data/*": [
                 "data/*"
+            ],
+            "@modules/*": [
+                "modules/*"
+            ],
+            "@exports/*": [
+                "modules/exports/*"
             ]
         }
     },

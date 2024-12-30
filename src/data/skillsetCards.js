@@ -1,4 +1,4 @@
-export const skillsetCard = [
+export const skillsetCards = [
     {
         id: 1,
         icon: 'product_design',

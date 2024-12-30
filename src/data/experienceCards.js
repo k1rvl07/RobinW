@@ -1,4 +1,4 @@
-export const experienceCard = [
+export const experienceCards = [
     {
         id: 1,
         color: "#3CC74E",

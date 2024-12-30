@@ -7,9 +7,6 @@
 @use "./mixins.scss" as *;
 @use "./functions.scss" as *;
 
-
-// Комплексные шаблоны
-
 @each $item in $text-list {
     $name: list.nth($item, 1);
     $font-family: list.nth($item, 2);
@@ -75,8 +72,6 @@
     }
 }
 
-// Простые шаблоны
-
 %container {
     @include size(default, 320px);
     @include spacing(margin, x, auto);
@@ -86,22 +81,4 @@
     @include respond-to(desktop) {
         @include size(default, 1296px);
     }
-}
-
-%slider-window {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    @include respond-to("desktop") {
-        overflow-x: hidden;
-    }
-}
-
-%slides {
-    transition: transform 0.5s ease-in-out;
-}
-
-%slide {
-    scroll-snap-align: start;
-    position: relative;
 }

@@ -1,1 +1,1 @@
-export { UseScreenSize } from './UseScreenSize.js';
+export { useScreenSize } from './useScreenSize.js';

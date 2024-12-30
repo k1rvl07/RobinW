@@ -1,6 +1,5 @@
 import React from "react"
-import components from "@components"
-import { TextSmall } from "@components/TextSmall";
+import { components } from "@modules"
 export const SkillsetCard = ({ icon, title, text }) => {
     const { HeadingThird, TextSmall } = components;
     return (
