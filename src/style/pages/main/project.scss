@@ -15,8 +15,15 @@
     }
     &__button {
         grid-area: button;
+        @include flex(on);
+        @include spacing(margin, x, auto);
+        @include spacing(margin, top, 40px);
+        @include respond-to(tablet) {
+            @include spacing(margin, top, 48px);
+        }
         @include respond-to(desktop) {
             @include grid-item-alignment(center, center);
+            @include spacing(margin, top, 0px);
         }
     }
     .heading-container {
