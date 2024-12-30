@@ -10,9 +10,10 @@ body {
 
 .heading-container {
     @include flex(on, column, $gap: 8px);
-    &__subheading {
-        @extend %subheading;
-    }
+}
+
+.subheading {
+    @extend %subheading;
 }
 
 .heading-second {
@@ -55,6 +56,16 @@ body {
         &:hover {
             text-decoration: underline;
         }
+    }
+    &-white {
+        @extend %link-white;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    &-nav {
+        @extend %link-nav;
     }
 }
 

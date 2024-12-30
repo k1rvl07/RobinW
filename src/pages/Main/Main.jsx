@@ -35,7 +35,7 @@ export const Main = () => {
                     text="I think everyone wants the same thing - relationship with humanity, peace with the metaphysical, and experience with the universe. I try to grasp these things with my values: authenticity, creativity, & hospitality."
                     link='More about me'
                     img={imgImages.sphere} />
-                <Section tagName="section" className="skillset" isHasHeading={true} heading="Skillset" headingType="white" isHasText={true} text="With skills in over 4 different fields of design, I am the perfect person to hire when it comes to a full fledged project. Whatever your needs are, I can pretty much take on any challenge." textType="black">
+                <Section tagName="section" className="skillset" isHasHeading={true} heading="Skillset" headingType="white" isHasText={true} text="With skills in over 4 different fields of design, I am the perfect person to hire when it comes to a full fledged project. Whatever your needs are, I can pretty much take on any challenge." textType="white">
                     <div className="card__container">
                         {skillsetCards.map(skillsetCard => (
                             <SkillsetCard key={skillsetCard.id} icon={svgImages[skillsetCard.icon]} title={skillsetCard.title} text={skillsetCard.text} />
@@ -52,10 +52,10 @@ export const Main = () => {
                     </div>
                 </Section>
                 <Section tagName="section" className="project" isHasHeading={true} heading="Work that I’ve done for the past 8 years" headingType="white" isHasSubHeading={true} subheading="MY PROJECTS">
-                        {projectCards.map(projectCard => (
-                            <ProjectCard key={projectCard.id} projectCard={projectCard} />
-                        ))}
-                        <Button className="project__button">VIEW ALL PROJECTS</Button>
+                    {projectCards.map(projectCard => (
+                        <ProjectCard key={projectCard.id} projectCard={projectCard} />
+                    ))}
+                    <Button className="project__button">VIEW ALL PROJECTS</Button>
                 </Section>
                 <SocialSectionWhite
                     heading="Instagram"
@@ -63,6 +63,9 @@ export const Main = () => {
                     link='More about me'
                     img={imgImages.plane}
                 />
+                <Section tagName="section" className="dribble" isHasHeading={true} heading="Dribbble" headingType="white" isHasLink={true} link='Follow me on Dribbble' linkType="white" isHasText={true} text="Each dribbble shot is made with love and care. Do check out my work on Dribbble. Likes and comments are appreciated." textType="white">
+                    <img className="dribble__img" src={screenWidth >= 1440 ? imgImages.dribble_lg : screenWidth >= 768 ? imgImages.dribble_md : imgImages.dribble_sm} alt="" />
+                </Section>
             </main>
         </>
     );

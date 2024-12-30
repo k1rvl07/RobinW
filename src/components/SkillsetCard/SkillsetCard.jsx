@@ -6,7 +6,7 @@ export const SkillsetCard = ({ icon, title, text }) => {
         <div className="card">
             <img src={icon} alt="" />
             <HeadingThird className="card__title">{title}</HeadingThird>
-            <TextSmall type="black" className="card__text">{text}</TextSmall>
+            <TextSmall type="white" className="card__text">{text}</TextSmall>
         </div>
     )
 }

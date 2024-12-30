@@ -26,7 +26,7 @@
             @include spacing(margin, top, 0px);
         }
     }
-    .heading-container {
+    &__heading-container {
         grid-area: heading-container;
         @include spacing(margin, bottom, 80px);
         @include respond-to(desktop) {

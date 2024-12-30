@@ -2,7 +2,7 @@
 
 .social-section-white {
     background-color: color("peach accent");
-    @include size(default, null, 818px);
+    @include size(default, null, 877px);
     @include respond-to(tablet) {
         @include size(default, null, fit-content);    
     }
@@ -13,7 +13,7 @@
         }
     }
     &__main-content {
-        @include size(default, null, 320px);
+        @include size(default, null, 380px);
         @include flex(on, column);
         @include spacing((margin, padding), (top, bottom), null, 48px, 48px, null);
         @include respond-to(tablet) {

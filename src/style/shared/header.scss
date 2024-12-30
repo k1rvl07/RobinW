@@ -43,11 +43,8 @@
         @include respond-to(tablet) {
             @include spacing(padding, (x, y), 24px, 32px);
             @include flex(on, $justify: center);
-            transition: all 0.5s ease-in-out;
             &:hover {
                 background-color: color("primary");
-                font-weight: font-weight("bold");
-                transition: all 0.5s ease-in-out;
             }
         }
     }

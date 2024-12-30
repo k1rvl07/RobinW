@@ -8,7 +8,7 @@
     @include respond-to(desktop) {
         @include spacing(padding, bottom, 120px);
     }
-    .heading-container {
+    &__heading-container {
         @include respond-to(desktop) {
             @include size(default, 689px);
         }

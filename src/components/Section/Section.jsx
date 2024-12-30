@@ -32,6 +32,7 @@ export const Section = ({
               isHasSubHeading={isHasSubHeading}
               subheading={subheading}
               headingType={headingType}
+              className={className}
             >
               {heading}
             </HeadingSecond>
@@ -56,6 +57,7 @@ export const Section = ({
               isHasSubHeading={isHasSubHeading}
               subheading={subheading}
               headingType={headingType}
+              className={className}
             >
               {heading}
             </HeadingSecond>

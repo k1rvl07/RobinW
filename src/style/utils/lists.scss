@@ -18,9 +18,11 @@ $text-list: (
     "text-white" "Sen" regular normal color("text-white") 18px 18px 18px,
     "text-black-small" "Sen" regular normal color("text-black") 16px 16px 16px,
     "text-white-small" "Sen" regular normal color("text-white") 16px 16px 16px,
-    "button-text" "Sen" bold normal color("text") 18px 18px 18px
+    "button-text" "Sen" bold normal color("text") 18px 18px 18px,
+    "link-nav" "Sen" regular normal color("text") 16px 16px 16px
 );
 
 $dynamic-text-list: (
     "link-black" "Sen" regular normal color("level 1") color("primary") 16px 16px 16px,
+    "link-white" "Sen" regular normal color("text") color("primary") 16px 16px 16px,
 );

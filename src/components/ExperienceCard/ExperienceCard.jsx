@@ -7,7 +7,7 @@ export const ExperienceCard = ({ experienceCard }) => {
         <div className="card">
             <p className="card__num">0{experienceCard.id}</p>
             <HeadingThird className="card__title"><span className="card__company" style={{color: experienceCard.color}}>{experienceCard.company}</span>, {experienceCard.profession}</HeadingThird>
-            <TextSmall type="black" className="card__text">{experienceCard.text}</TextSmall>
+            <TextSmall type="white" className="card__text">{experienceCard.text}</TextSmall>
         </div>
     )
 }

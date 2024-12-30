@@ -92,3 +92,11 @@
         transition: all 0.5s ease-in-out;
     }
 }
+
+%link-nav {
+    transition: all 0.5s ease-in-out;
+    &:hover {
+        transition: all 0.5s ease-in-out;
+        font-weight: font-weight("bold");
+    }
+}
