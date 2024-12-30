@@ -109,23 +109,24 @@
     }
 }
 
-@mixin grid-setup(
+@mixin grid(
     $on: null,
     $rows: null,
     $columns: null,
     $areas: null,
     $row-gap: null,
     $column-gap: null,
+    $gap: null,
     $justify-items: null,
     $align-items: null,
     $justify-content: null,
     $align-content: null
 ) {
-    @include grid-template($on, $rows, $columns, $areas, $row-gap, $column-gap);
+    @include grid-template($on, $rows, $columns, $areas, $row-gap, $column-gap, $gap);
     @include grid-alignment($justify-items, $align-items, $justify-content, $align-content);
 }
 
-@mixin grid-template($on: null, $rows: null, $columns: null, $areas: null, $row-gap: null, $column-gap: null) {
+@mixin grid-template($on: null, $rows: null, $columns: null, $areas: null, $row-gap: null, $column-gap: null, $gap: null) {
     @if $on == on {
         display: grid;
     }
@@ -143,6 +144,9 @@
     }
     @if $column-gap != null {
         column-gap: $column-gap;
+    }
+    @if $gap != null {
+        gap: $gap;
     }
 }
 

@@ -1,11 +1,11 @@
-@use '../configuration/configuration.scss' as *;
+@use "../utils/utils.scss" as *;
 
 .header {
     &__container {
         @include spacing(padding, y, 24px);
-        @include grid-setup(on, repeat(2, auto), repeat(2, auto), "logo burger" "nav nav");
+        @include grid(on, repeat(2, auto), repeat(2, auto), "logo burger" "nav nav");
         @include respond-to(tablet) {
-            @include grid-setup(on, auto, repeat(2, auto), "logo nav");
+            @include grid(on, auto, repeat(2, auto), "logo nav");
             @include spacing(padding, y, 0px);
         }
     }

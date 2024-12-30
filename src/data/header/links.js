@@ -1,21 +1,21 @@
-export const headerNavElems = [
+export const headerLinks = [
     {
-        id: 1,
+        id: "1",
         text: "Experience",
         href: "#",
     },
     {
-        id: 2,
+        id: "2",
         text: "Work",
         href: "#",
     },
     {
-        id: 3,
+        id: "3",
         text: "Photography",
         href: "#",
     },
     {
-        id: 4,
+        id: "4",
         text: "Contact",
         href: "#",
     },

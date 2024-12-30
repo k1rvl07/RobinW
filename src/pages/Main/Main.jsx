@@ -1,9 +1,11 @@
 import React from "react";
 import { imgImages, svgImages, components, data, hooks } from "@modules";
+import { SponsorSlide } from "@components/SponsorSlide";
+import { Button } from "@components/Button";
 
 export const Main = () => {
-    const { Header, Section, ExperienceCard, SocialSectionWhite, SkillsetCard } = components;
-    const { experienceCards, skillsetCards, sponsorSlides } = data;
+    const { Header, Section, ExperienceCard, SocialSectionWhite, SkillsetCard, ProjectCard } = components;
+    const { experienceCards, skillsetCards, sponsorSlides, projectCards } = data;
     const { useInfiniteScroll, useScreenSize } = hooks;
     const { width: screenWidth } = useScreenSize();
     const { containerRef } = useInfiniteScroll(2, 1440);
@@ -44,12 +46,16 @@ export const Main = () => {
                     <div className="slider" ref={containerRef}>
                         <div className="slider__slides">
                             {duplicatedSlides.map((sponsorSlide, index) => (
-                                <div key={`${sponsorSlide.id}-${index}`} className="slider__slide">
-                                    <img src={svgImages[sponsorSlide.icon]} alt="" loading="lazy" />
-                                </div>
+                                <SponsorSlide key={`${sponsorSlide.id}-${index}`} icon={svgImages[sponsorSlide.icon]} className="slider__slide" />
                             ))}
                         </div>
                     </div>
+                </Section>
+                <Section tagName="section" className="project" isHasHeading={true} heading="Work that I’ve done for the past 8 years" headingType="white" isHasSubHeading={true} subheading="MY PROJECTS">
+                        {projectCards.map(projectCard => (
+                            <ProjectCard key={projectCard.id} projectCard={projectCard} />
+                        ))}
+                        <Button className="project__button">VIEW ALL PROJECTS</Button>
                 </Section>
                 <SocialSectionWhite
                     heading="Instagram"

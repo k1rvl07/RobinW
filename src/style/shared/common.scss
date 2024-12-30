@@ -1,4 +1,4 @@
-@use "../configuration/configuration.scss" as *;
+@use "../utils/utils.scss" as *;
 
 body {
     background-color: color("base");
@@ -25,19 +25,24 @@ body {
 }
 
 .heading-third {
+    line-height: 1.5;
     @extend %heading-third;
 }
 
 .text {
     &-black {
+        line-height: 1.8;
         @extend %text-black;
         &-small {
+            line-height: 1.8;
             @extend %text-black-small;
         }
     }
     &-white {
+        line-height: 1.8;
         @extend %text-white;
         &-small {
+            line-height: 1.8;
             @extend %text-white-small;
         }
     }
@@ -51,4 +56,9 @@ body {
             text-decoration: underline;
         }
     }
+}
+
+.button {
+    @extend %button;
+    @extend %button-text;
 }
