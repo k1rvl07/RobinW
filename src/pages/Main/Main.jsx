@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { imgImages, svgImages, components, data, hooks } from "@modules";
 
@@ -31,6 +31,25 @@ export const Main = () => {
       ? [...SPONSOR_SLIDES, ...SPONSOR_SLIDES]
       : SPONSOR_SLIDES;
   const [activePhotographyButton, setActivePhotographyButton] = useState(1);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const loadImages = async () => {
+      const imagePromises = PHOTOGRAPHY_IMGS.map((img) => {
+        return new Promise((resolve, reject) => {
+          const image = new Image();
+          image.src = imgImages[img.image];
+          image.onload = resolve;
+          image.onerror = reject;
+        });
+      });
+
+      await Promise.all(imagePromises);
+      setImagesLoaded(true);
+    };
+
+    loadImages();
+  }, []);
 
   const handlePhotographyButtonClick = (id) => {
     setActivePhotographyButton(id);
@@ -91,8 +110,7 @@ export const Main = () => {
         <Section
           className="experience"
           isHasHeading={true}
-          heading="Companies I have worked
-                        for in the past"
+          heading="Companies I have worked for in the past"
           headingType="white"
           isHasSubHeading={true}
           subheading="WORK EXPERIENCE"
@@ -233,27 +251,29 @@ export const Main = () => {
               </Button>
             ))}
           </div>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activePhotographyButton}
-              className="photography__img-container"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              transition={{ duration: 0.5 }}
-            >
-              {activeImages.map((img) => (
-                <motion.img
-                  key={img.id}
-                  className="photography__img"
-                  src={imgImages[img.image]}
-                  alt={`Photography ${img.id}`}
-                  variants={itemVariants}
-                />
-              ))}
-            </motion.div>
-          </AnimatePresence>
+          {imagesLoaded && (
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activePhotographyButton}
+                className="photography__img-container"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                transition={{ duration: 0.5 }}
+              >
+                {activeImages.map((img) => (
+                  <motion.img
+                    key={img.id}
+                    className="photography__img"
+                    src={imgImages[img.image]}
+                    alt={`Photography ${img.id}`}
+                    variants={itemVariants}
+                  />
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          )}
         </Section>
       </main>
     </>
