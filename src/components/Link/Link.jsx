@@ -1,13 +1,7 @@
-import React from "react";
 import classNames from "classnames";
+import React from "react";
 
-export const Link = ({
-  className,
-  href,
-  type,
-  children,
-  isHeaderLink = false,
-}) => {
+export const Link = ({ className, href, type, children, isHeaderLink = false }) => {
   const linkClass = classNames(
     {
       "link-black": type === "black",

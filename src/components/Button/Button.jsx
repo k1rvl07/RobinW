@@ -1,5 +1,5 @@
-import React from "react";
 import classNames from "classnames";
+import React from "react";
 
 export const Button = ({ children, type = "default", onClick, className }) => {
   const buttonClass = classNames(

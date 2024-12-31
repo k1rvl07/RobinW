@@ -1,5 +1,6 @@
-import { useRef, useEffect } from "react";
 import { hooks } from "@modules";
+import { use, useCallback } from "react";
+import { useEffect, useRef } from "react";
 
 export const useInfiniteScroll = (speed = 1, breakpoint = 768) => {
   const { useScreenSize } = hooks;
@@ -7,20 +8,17 @@ export const useInfiniteScroll = (speed = 1, breakpoint = 768) => {
   const animationFrameRef = useRef(null);
   const { width: screenWidth } = useScreenSize();
 
-  const scrollContent = () => {
+  const scrollContent = useCallback(() => {
     if (containerRef.current && screenWidth >= breakpoint) {
       containerRef.current.scrollLeft += speed;
 
-      if (
-        containerRef.current.scrollLeft >=
-        containerRef.current.scrollWidth / 2
-      ) {
+      if (containerRef.current.scrollLeft >= containerRef.current.scrollWidth / 2) {
         containerRef.current.scrollLeft -= containerRef.current.scrollWidth / 2;
       }
 
       animationFrameRef.current = requestAnimationFrame(scrollContent);
     }
-  };
+  }, [speed, screenWidth, breakpoint]);
 
   useEffect(() => {
     if (screenWidth >= breakpoint) {
@@ -36,7 +34,7 @@ export const useInfiniteScroll = (speed = 1, breakpoint = 768) => {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [screenWidth, speed, breakpoint]);
+  }, [screenWidth, breakpoint, scrollContent]);
 
   return { containerRef };
 };

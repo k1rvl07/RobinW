@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { imgImages, svgImages, components, data, hooks } from "@modules";
+import { components, data, hooks, imgImages, svgImages } from "@modules";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export const Main = () => {
   const {
@@ -27,9 +27,7 @@ export const Main = () => {
   const { width: screenWidth } = useScreenSize();
   const { containerRef } = useInfiniteScroll(2, 1440);
   const duplicatedSlides =
-    screenWidth >= 1440
-      ? [...SPONSOR_SLIDES, ...SPONSOR_SLIDES]
-      : SPONSOR_SLIDES;
+    screenWidth >= 1440 ? [...SPONSOR_SLIDES, ...SPONSOR_SLIDES] : SPONSOR_SLIDES;
   const [activePhotographyButton, setActivePhotographyButton] = useState(1);
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
@@ -49,7 +47,7 @@ export const Main = () => {
     };
 
     loadImages();
-  }, []);
+  }, [PHOTOGRAPHY_IMGS]);
 
   const handlePhotographyButtonClick = (id) => {
     setActivePhotographyButton(id);
@@ -101,9 +99,8 @@ export const Main = () => {
               <span className="hero__title-span">based in Italy.</span>
             </h1>
             <p className="hero__text">
-              I’m probably the most passionate designer you will ever get to
-              work with. If you have a great project that needs some amazing
-              skills, I’m your guy.
+              I’m probably the most passionate designer you will ever get to work with. If you have
+              a great project that needs some amazing skills, I’m your guy.
             </p>
           </div>
         </Section>
@@ -117,10 +114,7 @@ export const Main = () => {
         >
           <div className="card__container">
             {EXPERIENCE_CARDS.map((experienceCard) => (
-              <ExperienceCard
-                key={experienceCard.id}
-                experienceCard={experienceCard}
-              />
+              <ExperienceCard key={experienceCard.id} experienceCard={experienceCard} />
             ))}
           </div>
         </Section>
@@ -200,8 +194,8 @@ export const Main = () => {
               screenWidth >= 1440
                 ? imgImages.dribble_lg
                 : screenWidth >= 768
-                ? imgImages.dribble_md
-                : imgImages.dribble_sm
+                  ? imgImages.dribble_md
+                  : imgImages.dribble_sm
             }
             alt=""
           />
@@ -243,9 +237,7 @@ export const Main = () => {
                     ? "photography__button--active"
                     : ""
                 }`}
-                onClick={() =>
-                  handlePhotographyButtonClick(photographyButton.id)
-                }
+                onClick={() => handlePhotographyButtonClick(photographyButton.id)}
               >
                 {photographyButton.text}
               </Button>

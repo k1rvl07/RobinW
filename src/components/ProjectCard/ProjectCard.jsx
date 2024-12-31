@@ -1,5 +1,5 @@
+import { components, imgImages } from "@modules";
 import React from "react";
-import { imgImages, components } from "@modules";
 
 export const ProjectCard = ({ projectCard }) => {
   const { Heading, Text } = components;

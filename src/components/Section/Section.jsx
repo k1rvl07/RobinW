@@ -1,5 +1,5 @@
-import React from "react";
 import { components } from "@modules";
+import React from "react";
 
 export const Section = ({
   tagName: Tag = "section",

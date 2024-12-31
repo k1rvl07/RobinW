@@ -1,6 +1,6 @@
-import fs from "fs";
-import path from "path";
-import { fileURLToPath, pathToFileURL } from "url";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import chokidar from "chokidar";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -41,34 +41,31 @@ const processFolder = (folderPath, folderConfig) => {
   }
 
   if (folderConfig.files && folderConfig.files.length > 0) {
-    folderConfig.files.forEach((file) => {
+    for (const file of folderConfig.files) {
       const filePath = path.join(folderPath, file);
       if (fs.existsSync(filePath)) {
-        const relativePath = path
-          .relative(stylesDir, filePath)
-          .replace(/\\/g, "/");
+        const relativePath = path.relative(stylesDir, filePath).replace(/\\/g, "/");
         const fileName = path.basename(relativePath, ".scss").replace(/^_/, "");
         const directoryPath = path.dirname(relativePath);
-        const fullPath =
-          directoryPath !== "." ? `${directoryPath}/${fileName}` : fileName;
+        const fullPath = directoryPath !== "." ? `${directoryPath}/${fileName}` : fileName;
         globalStylesContent += `@forward '${fullPath}';\n`;
       } else {
         console.warn(`Файл ${filePath} не найден!`);
       }
-    });
+    }
   }
 
   if (folderConfig.subfolders && folderConfig.subfolders.length > 0) {
-    folderConfig.subfolders.forEach((subfolderConfig) => {
+    for (const subfolderConfig of folderConfig.subfolders) {
       const subfolderPath = path.join(folderPath, subfolderConfig.folder);
       globalStylesContent += processFolder(subfolderPath, subfolderConfig);
-    });
+    }
   }
 
   const allFiles = fs.readdirSync(folderPath);
   const remainingFiles = allFiles.filter((file) => {
     const filePath = path.join(folderPath, file);
-    const isFile = fs.statSync(filePath).isFile();
+    const _isFile = fs.statSync(filePath).isFile();
     const isFileInOrder = folderConfig.files?.includes(file);
     const isSubfolderInOrder = folderConfig.subfolders?.some(
       (subfolder) => subfolder.folder === file,
@@ -76,16 +73,13 @@ const processFolder = (folderPath, folderConfig) => {
     return !isFileInOrder && !isSubfolderInOrder;
   });
 
-  remainingFiles.forEach((file) => {
+  for (const file of remainingFiles) {
     const filePath = path.join(folderPath, file);
     if (fs.statSync(filePath).isFile() && file.endsWith(".scss")) {
-      const relativePath = path
-        .relative(stylesDir, filePath)
-        .replace(/\\/g, "/");
+      const relativePath = path.relative(stylesDir, filePath).replace(/\\/g, "/");
       const fileName = path.basename(relativePath, ".scss").replace(/^_/, "");
       const directoryPath = path.dirname(relativePath);
-      const fullPath =
-        directoryPath !== "." ? `${directoryPath}/${fileName}` : fileName;
+      const fullPath = directoryPath !== "." ? `${directoryPath}/${fileName}` : fileName;
       globalStylesContent += `@forward '${fullPath}';\n`;
     } else if (fs.statSync(filePath).isDirectory()) {
       const subfolderPath = path.join(folderPath, file);
@@ -94,7 +88,7 @@ const processFolder = (folderPath, folderConfig) => {
         subfolders: [],
       });
     }
-  });
+  }
 
   return globalStylesContent;
 };
@@ -102,10 +96,10 @@ const processFolder = (folderPath, folderConfig) => {
 const buildStyles = (foldersOrder) => {
   let globalStylesContent = "";
 
-  foldersOrder.forEach((folderConfig) => {
+  for (const folderConfig of foldersOrder) {
     const folderPath = path.join(stylesDir, folderConfig.folder);
     globalStylesContent += processFolder(folderPath, folderConfig);
-  });
+  }
 
   fs.writeFileSync(outputFilePath, globalStylesContent);
   console.log("_global.scss успешно обновлён!");

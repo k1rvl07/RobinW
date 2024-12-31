@@ -6,41 +6,41 @@ module.exports = {
   skipFinalStep: false /* Toggle final step agreement */,
   checkExistenceOnCreate: false /* Enable check folder for components which can be replaced */,
   folderPath: [
-    'src/components',
-    'src/pages',
-    'src/hooks',
+    "src/components",
+    "src/pages",
+    "src/hooks",
   ] /* Destination path or array of paths to create components */,
-  templatesFolder: 'templates' /* Folder with templates */,
+  templatesFolder: "templates" /* Folder with templates */,
   templates: [
     {
-      name: 'component',
+      name: "component",
       files: {
         /* Component folder structure declaration */
         index: {
-          name: 'index.js',
-          file: 'index.tmp',
+          name: "index.js",
+          file: "index.tmp",
         },
         component: {
-          name: '[name].jsx',
+          name: "[name].jsx",
           file: [
-            { name: 'fc.tmp', description: 'Functional component' },
-            { name: 'class.tmp', description: 'Class component' },
+            { name: "fc.tmp", description: "Functional component" },
+            { name: "class.tmp", description: "Class component" },
           ],
         },
         style: {
-          name: '[name].module.css',
+          name: "[name].module.css",
           optional: true,
           default: false,
         },
         stories: {
-          name: '[name].stories.tsx',
-          file: 'stories.tmp',
+          name: "[name].stories.tsx",
+          file: "stories.tmp",
           optional: true,
           default: false,
         },
         test: {
-          name: '[name].test.tsx' /*'__tests__/[name].test.tsx' to put tests into subfolder*/,
-          file: 'test.tmp',
+          name: "[name].test.tsx" /*'__tests__/[name].test.tsx' to put tests into subfolder*/,
+          file: "test.tmp",
           optional: true,
           default: false,
         },
@@ -51,8 +51,7 @@ module.exports = {
     /* Template placeholders */
     NAME: ({ componentName }) => componentName,
     COMPONENT_FILE_PREFIX: ({ filePrefix }) => filePrefix,
-    STYLE: ({ files }) =>
-      files.style ? `import styles from './${files.style.name}';\n` : '',
+    STYLE: ({ files }) => (files.style ? `import styles from './${files.style.name}';\n` : ""),
     STORY_PATH: ({ join, project, destinationFolder, componentName }) =>
       join(project, destinationFolder, componentName),
   },

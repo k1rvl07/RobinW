@@ -1,15 +1,9 @@
-import React from "react";
 import classNames from "classnames";
+import React from "react";
 
 import { components } from "@modules";
 
-export const SocialSectionWhite = ({
-  heading,
-  text,
-  img,
-  href = "#",
-  link,
-}) => {
+export const SocialSectionWhite = ({ heading, text, img, href = "#", link }) => {
   const { Section } = components;
   return (
     <Section
