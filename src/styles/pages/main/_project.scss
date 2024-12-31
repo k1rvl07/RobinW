@@ -1,4 +1,4 @@
-@use '../../utils/utils.scss' as *;
+@use "@utils-scss" as *;
 
 .project {
     @include spacing(padding, y, 60px);

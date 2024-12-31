@@ -1,4 +1,4 @@
-@use "../../utils/utils.scss" as *;
+@use "@utils-scss" as *;
 
 .about {
     @include spacing(padding, y, 48px);
@@ -49,6 +49,9 @@
         }
         &__title {
             @include spacing(margin, bottom, 64px);
+        }
+        &__name {
+            font-weight: font-weight("bold");
         }
     }
 }

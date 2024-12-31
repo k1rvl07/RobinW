@@ -1,4 +1,4 @@
-@use "../utils/utils.scss" as *;
+@use "@utils-scss" as *;
 
 .heading-container {
     @include flex(on, column, $gap: 8px);

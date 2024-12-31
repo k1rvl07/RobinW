@@ -17,6 +17,7 @@ export default defineConfig({
       '@data': path.resolve(__dirname, './src/data'),
       '@modules': path.resolve(__dirname, './src/modules'),
       '@exports': path.resolve(__dirname, './src/modules/exports'),
+      '@utils-scss': path.resolve(__dirname, './src/styles/utils/utils.scss'),
     }
   },
   css: {
