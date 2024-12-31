@@ -36,9 +36,6 @@
             @include flex($justify: flex-end);
         }
     }
-    &__item {
-        @extend %header-nav;
-    }
     &__link {
         @include respond-to(tablet) {
             @include spacing(padding, (x, y), 24px, 32px);

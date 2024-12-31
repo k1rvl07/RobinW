@@ -1,0 +1,6 @@
+@use "../utils/utils.scss" as *;
+
+.heading-third {
+    line-height: 1.5;
+    @extend %heading-third;
+}

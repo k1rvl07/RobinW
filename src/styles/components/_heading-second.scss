@@ -1,0 +1,18 @@
+@use "../utils/utils.scss" as *;
+
+.heading-container {
+    @include flex(on, column, $gap: 8px);
+}
+
+.subheading {
+    @extend %subheading;
+}
+
+.heading-second {
+    &-white {
+        @extend %heading-second-white;
+    }
+    &-black {
+        @extend %heading-second-black;
+    }
+}

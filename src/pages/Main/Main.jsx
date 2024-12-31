@@ -1,11 +1,9 @@
 import React from "react";
 import { imgImages, svgImages, components, data, hooks } from "@modules";
-import { SponsorSlide } from "@components/SponsorSlide";
-import { Button } from "@components/Button";
 
 export const Main = () => {
-    const { Header, Section, ExperienceCard, SocialSectionWhite, SkillsetCard, ProjectCard } = components;
-    const { experienceCards, skillsetCards, sponsorSlides, projectCards } = data;
+    const { Header, Section, ExperienceCard, SocialSectionWhite, SkillsetCard, ProjectCard, AboutCard, SponsorSlide, Button } = components;
+    const { experienceCards, skillsetCards, sponsorSlides, projectCards, aboutCards } = data;
     const { useInfiniteScroll, useScreenSize } = hooks;
     const { width: screenWidth } = useScreenSize();
     const { containerRef } = useInfiniteScroll(2, 1440);
@@ -65,6 +63,13 @@ export const Main = () => {
                 />
                 <Section tagName="section" className="dribble" isHasHeading={true} heading="Dribbble" headingType="white" isHasLink={true} link='Follow me on Dribbble' linkType="white" isHasText={true} text="Each dribbble shot is made with love and care. Do check out my work on Dribbble. Likes and comments are appreciated." textType="white">
                     <img className="dribble__img" src={screenWidth >= 1440 ? imgImages.dribble_lg : screenWidth >= 768 ? imgImages.dribble_md : imgImages.dribble_sm} alt="" />
+                </Section>
+                <Section tagName="section" className="about" isHasHeading={true} heading="This is what people say about me" headingType="white" isHasText={true} text="Here are a few lines from people who I have worked with over the past 8+ years in my design career." textType="white" isHasLink={true} link='See all testimonials' linkType="white">
+                    <div className="card__container">
+                        {aboutCards.map(aboutCard => (
+                            <AboutCard key={aboutCard.id} aboutCard={aboutCard} />
+                        ))}
+                    </div>
                 </Section>
             </main>
         </>

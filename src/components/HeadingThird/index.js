@@ -1,1 +1,0 @@
-export {HeadingThird} from './HeadingThird'

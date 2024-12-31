@@ -1,0 +1,21 @@
+@use "../utils/utils.scss" as *;
+
+.link {
+    &-black {
+        @extend %link-black;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    &-white {
+        @extend %link-white;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    &-nav {
+        @extend %link-nav;
+    }
+}

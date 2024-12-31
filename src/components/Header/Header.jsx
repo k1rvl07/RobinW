@@ -2,7 +2,7 @@ import { useState } from "react";
 import { components, svgImages, data, hooks } from "@modules";
 
 export const Header = () => {
-    const { Section, HeaderLink } = components;
+    const { Section, Link } = components;
     const { headerLinks } = data;
     const { useScreenSize } = hooks;
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,7 +20,7 @@ export const Header = () => {
                 <ul className="header__list">
                     {headerLinks.map(headerLink => (
                         <li key={headerLink.id} className="header__item">
-                            <HeaderLink className="header__link" headerLink={headerLink} />
+                            <Link isHeaderLink={true} link={headerLink}>{headerLink.text}</Link>
                         </li>
                     ))}
                 </ul>

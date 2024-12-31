@@ -1,1 +1,0 @@
-export {TextSmall} from './TextSmall'

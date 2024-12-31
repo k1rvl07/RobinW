@@ -2,13 +2,13 @@ import React from "react"
 import { imgImages, components } from "@modules"
 
 export const ProjectCard = ( { projectCard } ) => {
-    const { HeadingThird, TextSmall } = components;
+    const { Heading, Text } = components;
     return (
         <div className="card">
             <img className="card__img" src={imgImages[projectCard.img]} alt="" />
             <div className="card__content">
-                <HeadingThird className="card__title">{projectCard.title}</HeadingThird>
-                <TextSmall type="white" className="card__text">{projectCard.text}</TextSmall>
+                <Heading level={3} className="card__title">{projectCard.title}</Heading>
+                <Text type="white" className="card__text" size="small">{projectCard.text}</Text>
             </div>
         </div>
     )

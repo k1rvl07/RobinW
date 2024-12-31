@@ -1,4 +1,4 @@
-import '@style/global.scss';
+import '@styles/_global.scss';
 
 import { pages } from '@modules';
 

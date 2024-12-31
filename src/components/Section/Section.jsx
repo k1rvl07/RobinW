@@ -8,18 +8,18 @@ export const Section = ({
   isHasContainer = true,
   isHasHeading = false,
   heading,
+  headingType = "black",
   isHasSubHeading = false,
   subheading,
-  headingType = "black",
   isHasText = false,
   text,
+  textType,
   isHasLink = false,
   link,
-  href = "#",
-  textType,
   linkType,
+  href = "#",
 }) => {
-  const { Container, HeadingSecond, Text, Link } = components;
+  const { Container, Heading, Text, Link } = components;
 
   const shouldWrapContent = isHasHeading && (isHasText || isHasLink);
 
@@ -28,14 +28,15 @@ export const Section = ({
       {shouldWrapContent ? (
         <div className={`${className}__main-content`}>
           {isHasHeading && (
-            <HeadingSecond
+            <Heading
+              level={2}
               isHasSubHeading={isHasSubHeading}
               subheading={subheading}
               headingType={headingType}
               className={className}
             >
               {heading}
-            </HeadingSecond>
+            </Heading>
           )}
 
           {isHasText && (
@@ -53,14 +54,15 @@ export const Section = ({
       ) : (
         <>
           {isHasHeading && (
-            <HeadingSecond
+            <Heading
+              level={2}
               isHasSubHeading={isHasSubHeading}
               subheading={subheading}
               headingType={headingType}
               className={className}
             >
               {heading}
-            </HeadingSecond>
+            </Heading>
           )}
 
           {isHasText && (

@@ -20,8 +20,8 @@
             "@svg/*": [
                 "assets/svg/*"
             ],
-            "@style/*": [
-                "style/*"
+            "@styles/*": [
+                "styles/*"
             ],
             "@data/*": [
                 "data/*"

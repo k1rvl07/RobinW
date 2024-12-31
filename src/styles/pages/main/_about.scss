@@ -1,0 +1,54 @@
+@use "../../utils/utils.scss" as *;
+
+.about {
+    @include spacing(padding, y, 48px);
+    @include respond-to(tablet) {
+        @include spacing(padding, y, 80px);
+    }
+    @include respond-to(desktop) {
+        @include spacing(padding, y, 120px);
+    }
+    &__main-content {
+        @include respond-to(tablet) {
+            @include size(default, 333px);
+        }
+        @include respond-to(desktop) {
+            @include size(default, 576px);
+        }
+    }
+    &__container {
+        @include respond-to(tablet) {
+            @include flex(on, row, $justify: space-between);
+        }
+    }
+    &__text {
+        @include spacing(margin, (top, bottom), 24px, 40px);
+    }
+    .card {
+        @include border(all, 1px, solid, color("text-black"));
+        @include flex(on, column, $align-items: center);
+        &__container {
+            @include flex(on, column, $gap: 48px);
+            @include spacing(margin, top, 64px);
+            @include respond-to(tablet) {
+                @include spacing(margin, top, 0px);
+                @include flex($gap: 64px);
+                @include size(default, 333px);
+            }
+            @include respond-to(desktop) {
+                @include size(default, 636px);
+            }
+        }
+        &__content {
+            @include size(default, 269px);
+            @include spacing(padding, y, 32px);
+            @include respond-to(desktop) {
+                @include size(default, 508px);
+                @include spacing(padding, y, 64px);
+            }
+        }
+        &__title {
+            @include spacing(margin, bottom, 64px);
+        }
+    }
+}

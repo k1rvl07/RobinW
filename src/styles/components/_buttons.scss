@@ -1,0 +1,6 @@
+@use "../utils/utils.scss" as *;
+
+.button {
+    @extend %button;
+    @extend %button-text;
+}
