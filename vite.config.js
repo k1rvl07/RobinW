@@ -3,8 +3,11 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 
 export default defineConfig({
-  base: '',
+  base: './',
   plugins: [react()],
+  build: {
+    assetsInlineLimit: 0,
+  },
   resolve: {
     alias: {
       '@assets': path.resolve(__dirname, './src/assets'),

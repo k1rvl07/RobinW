@@ -1,5 +1,4 @@
 {
-  "$schema": "https://rome.tools/schema.json",
   "linter": {
     "enabled": true,
     "rules": {

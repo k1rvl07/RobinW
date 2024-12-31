@@ -7,12 +7,12 @@ export const imgImages = Object.keys(imgModules).reduce((images, path) => {
   const key = path
     .replace("../../assets/img/", "")
     .replace(/\.(png|jpe?g|gif)$/, "");
-  images[key] = `.${imgModules[path].default}`;
+  images[key] = imgModules[path].default;
   return images;
 }, {});
 
 export const svgImages = Object.keys(svgModules).reduce((images, path) => {
   const key = path.replace("../../assets/svg/", "").replace(/\.svg$/, "");
-  images[key] = `.${svgModules[path].default}`;
+  images[key] = svgModules[path].default;
   return images;
 }, {});
