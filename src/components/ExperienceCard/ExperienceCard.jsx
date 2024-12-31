@@ -1,4 +1,4 @@
-import { components } from "@modules";
+import { components } from "@exports";
 import React from "react";
 
 export const ExperienceCard = ({ experienceCard }) => {

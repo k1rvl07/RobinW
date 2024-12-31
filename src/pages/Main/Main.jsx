@@ -1,4 +1,4 @@
-import { components, data, hooks, imgImages, svgImages } from "@modules";
+import { components, data, hooks, imgImages, svgImages } from "@exports";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 

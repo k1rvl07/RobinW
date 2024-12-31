@@ -1,4 +1,4 @@
-import { components, imgImages } from "@modules";
+import { components, imgImages } from "@exports";
 import React from "react";
 
 export const ProjectCard = ({ projectCard }) => {

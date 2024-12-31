@@ -12,7 +12,7 @@
     "biome:apply": "npx biome check --apply --write .",
     "biome:unsafe": "npx biome check --unsafe --write .",
     "preview": "vite preview",
-    "watchStyles": "node src/modules/utils/buildStyles/buildStyles.js"
+    "watchStyles": "node src/utils/buildStyles/buildStyles.js"
   },
   "dependencies": {
     "react": "^18.3.1",

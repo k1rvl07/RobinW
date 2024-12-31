@@ -10,8 +10,8 @@
       "@svg/*": ["assets/svg/*"],
       "@styles/*": ["styles/*"],
       "@data/*": ["data/*"],
-      "@modules/*": ["modules/*"],
-      "@exports/*": ["modules/exports/*"],
+      "@utils/*": ["utils/*"],
+      "@exports/*": ["utils/exports/*"],
       "@utils-scss/*": ["styles/utils/utils.scss*"]
     }
   },

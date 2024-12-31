@@ -1,4 +1,4 @@
-import { components, data, hooks, svgImages } from "@modules";
+import { components, data, hooks, svgImages } from "@exports";
 import { useState } from "react";
 
 export const Header = () => {
