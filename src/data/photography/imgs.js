@@ -1,0 +1,18 @@
+export const PHOTOGRAPHY_IMGS = [
+  { id: 1, image: "italy_1" },
+  { id: 2, image: "italy_2" },
+  { id: 3, image: "italy_3" },
+  { id: 4, image: "italy_4" },
+  { id: 5, image: "australia_1" },
+  { id: 6, image: "australia_2" },
+  { id: 7, image: "australia_3" },
+  { id: 8, image: "australia_4" },
+  { id: 9, image: "india_1" },
+  { id: 10, image: "india_2" },
+  { id: 11, image: "india_3" },
+  { id: 12, image: "india_4" },
+  { id: 13, image: "brazil_1" },
+  { id: 14, image: "brazil_2" },
+  { id: 15, image: "brazil_3" },
+  { id: 16, image: "brazil_4" },
+];

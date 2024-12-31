@@ -1,39 +1,39 @@
-@use "@utils-scss" as *;
+@use '@utils-scss' as *;
 
 .dribble {
-    @include spacing(padding, y, 64px);
-    @include respond-to(tablet) {
-        @include spacing(padding, y, 80px);
-    }
+  @include spacing(padding, y, 64px);
+  @include respond-to(tablet) {
+    @include spacing(padding, y, 80px);
+  }
+  @include respond-to(desktop) {
+    @include spacing(padding, y, 120px);
+  }
+  &__container {
     @include respond-to(desktop) {
-        @include spacing(padding, y, 120px);
+      @include size(default, fit-content);
+      @include flex(on, column);
+      @include spacing(margin, x, auto);
     }
-    &__container {
-        @include respond-to(desktop) {
-            @include size(default, fit-content);
-            @include flex(on, column);
-            @include spacing(margin, x, auto);
-        }
+  }
+  &__img {
+    @include image-fit(cover, center);
+    @include size(default, null, 516px);
+    @include respond-to(desktop) {
+      @include size(default, 1076px, 676px);
     }
-    &__img {
-        @include image-fit(cover, center);
-        @include size(default, null, 516px);
-        @include respond-to(desktop) {
-            @include size(default, 1076px, 676px);
-        }
+  }
+  &__main-content {
+    @include respond-to(desktop) {
+      @include size(default, 636px);
     }
-    &__main-content {
-        @include respond-to(desktop) {
-            @include size(default, 636px);
-        }
+  }
+  &__text {
+    @include spacing(margin, (top, bottom), 24px, 40px);
+  }
+  &__img {
+    @include spacing(margin, top, 68px);
+    @include respond-to(tablet) {
+      @include spacing(margin, top, 120px);
     }
-    &__text {
-        @include spacing(margin, (top, bottom), 24px, 40px);
-    }
-    &__img {
-        @include spacing(margin, top, 68px);
-        @include respond-to(tablet) {
-            @include spacing(margin, top, 120px);
-        }
-    }
+  }
 }

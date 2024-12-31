@@ -1,20 +1,20 @@
-@use "@utils-scss" as *;
+@use '@utils-scss' as *;
 
 .text {
-    &-black {
-        line-height: 1.8;
-        @extend %text-black;
-        &-small {
-            line-height: 1.8;
-            @extend %text-black-small;
-        }
+  &-black {
+    line-height: 1.8;
+    @extend %text-black;
+    &-small {
+      line-height: 1.8;
+      @extend %text-black-small;
     }
-    &-white {
-        line-height: 1.8;
-        @extend %text-white;
-        &-small {
-            line-height: 1.8;
-            @extend %text-white-small;
-        }
+  }
+  &-white {
+    line-height: 1.8;
+    @extend %text-white;
+    &-small {
+      line-height: 1.8;
+      @extend %text-white-small;
     }
+  }
 }

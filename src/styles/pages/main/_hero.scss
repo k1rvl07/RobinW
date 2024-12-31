@@ -1,58 +1,58 @@
-@use "@utils-scss" as *;
+@use '@utils-scss' as *;
 
 .hero {
-    @include spacing(padding, bottom, 48px);
+  @include spacing(padding, bottom, 48px);
+  @include respond-to(tablet) {
+    @include spacing(padding, y, 84px);
+  }
+  @include respond-to(desktop) {
+    @include spacing(padding, bottom, 120px);
+  }
+  &__container {
+    @include size(default, null, 604px);
+    @include flex(on, column);
     @include respond-to(tablet) {
-        @include spacing(padding, y, 84px);
+      @include flex($direction: row-reverse, $justify: space-between);
+      @include size(default, null, 650px);
+    }
+  }
+  &__content {
+    @include spacing(margin, top, auto);
+    @include respond-to(tablet) {
+      @include spacing(margin, top, 0px);
+      @include flex-item-alignment($align-self: center);
+      @include size(default, 408px, 475px);
+      @include flex(on, column, $justify: space-between);
+      z-index: 1;
     }
     @include respond-to(desktop) {
-        @include spacing(padding, bottom, 120px);
+      @include size(default, 738px, 368px);
     }
-    &__container {
-        @include size(default, null, 604px);
-        @include flex(on, column);
-        @include respond-to(tablet) {
-            @include flex($direction: row-reverse, $justify: space-between);
-            @include size(default, null, 650px);
-        }
+  }
+  &__title {
+    @extend %hero-title;
+    @include spacing(padding, bottom, 16px);
+    @include respond-to(tablet) {
+      @include spacing(padding, (top, bottom), 0px, 0px);
     }
-    &__content {
-        @include spacing(margin, top, auto);
-        @include respond-to(tablet) {
-            @include spacing(margin, top, 0px);
-            @include flex-item-alignment($align-self: center);
-            @include size(default, 408px, 475px);
-            @include flex(on, column, $justify: space-between);
-            z-index: 1;
-        }
-        @include respond-to(desktop) {
-            @include size(default, 738px, 368px);
-        }
+    &-span {
+      opacity: 0.5;
     }
-    &__title {
-        @extend %hero-title;
-        @include spacing(padding, bottom, 16px);
-        @include respond-to(tablet) {
-            @include spacing(padding, (top, bottom), 0px, 0px);
-        }
-        &-span {
-            opacity: 0.5;
-        }
+  }
+  &__img {
+    position: absolute;
+    left: calc(50% - 180px);
+    @include image-fit(cover, center);
+    @include size(default, 360px, 288px);
+    @include respond-to(tablet) {
+      left: 0;
+      @include size(default, 384px, 650px);
     }
-    &__img {
-        position: absolute;
-        left: calc(50% - 180px);
-        @include image-fit(cover, center);
-        @include size(default, 360px, 288px);
-        @include respond-to(tablet) {
-            left: 0;
-            @include size(default, 384px, 650px);
-        }
-        @include respond-to(desktop) {
-            @include size(default, 750px, null);
-        }
+    @include respond-to(desktop) {
+      @include size(default, 750px, null);
     }
-    &__text {
-        @extend %hero-text;
-    }
+  }
+  &__text {
+    @extend %hero-text;
+  }
 }

@@ -1,0 +1,38 @@
+@use '@utils-scss' as *;
+
+.photography {
+  @include spacing(padding, y, 48px);
+  @include respond-to(tablet) {
+    @include spacing(padding, y, 80px);
+  }
+  @include respond-to(desktop) {
+    @include spacing(padding, y, 120px);
+  }
+  &__heading {
+    @include spacing(margin, bottom, 24px);
+  }
+  &__button {
+    &-container {
+      @include spacing(margin, y, 40px);
+      @include flex(on, row, $gap: 24px, $wrap: wrap);
+      @include respond-to(tablet) {
+        @include spacing(margin, top, 64px);
+      }
+    }
+    &--active {
+      background-color: color('primary');
+    }
+  }
+  &__img {
+    @include size(default, 320px, 420px);
+    @include respond-to(tablet) {
+      @include size(default, 332px);
+    }
+    @include respond-to(desktop) {
+      @include size(default, 306px);
+    }
+    &-container {
+      @include flex(on, row, $gap: 24px, $wrap: wrap);
+    }
+  }
+}

@@ -1,103 +1,113 @@
-@use "sass:map";
-@use "sass:list";
-@use "sass:math";
-@use "sass:meta";
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:meta';
 
-@use "./lists.scss" as *;
-@use "./mixins.scss" as *;
-@use "./functions.scss" as *;
+@use './lists.scss' as *;
+@use './mixins.scss' as *;
+@use './functions.scss' as *;
 
 @each $item in $text-list {
-    $name: list.nth($item, 1);
-    $font-family: list.nth($item, 2);
-    $font-weight: list.nth($item, 3);
-    $font-style: list.nth($item, 4);
-    $color: list.nth($item, 5);
-    $font-size: list.nth($item, 6);
-    $tablet-font-size: list.nth($item, 7);
-    $desktop-font-size: list.nth($item, 8);
+  $name: list.nth($item, 1);
+  $font-family: list.nth($item, 2);
+  $font-weight: list.nth($item, 3);
+  $font-style: list.nth($item, 4);
+  $color: list.nth($item, 5);
+  $font-size: list.nth($item, 6);
+  $tablet-font-size: list.nth($item, 7);
+  $desktop-font-size: list.nth($item, 8);
 
-    %#{$name} {
-        font-family: $font-family;
-        font-weight: font-weight($font-weight);
-        font-style: $font-style;
-        font-size: $font-size;
-        color: $color;
-        @if $font-size != $tablet-font-size {
-            @include respond-to(tablet) {
-                font-size: $tablet-font-size;
-            }
-        }
-        @if $tablet-font-size != $desktop-font-size {
-            @include respond-to(desktop) {
-                font-size: $desktop-font-size;
-            }
-        }
+  %#{$name} {
+    font-family: $font-family;
+    font-weight: font-weight($font-weight);
+    font-style: $font-style;
+    font-size: $font-size;
+    color: $color;
+    @if $font-size != $tablet-font-size {
+      @include respond-to(tablet) {
+        font-size: $tablet-font-size;
+      }
     }
+    @if $tablet-font-size != $desktop-font-size {
+      @include respond-to(desktop) {
+        font-size: $desktop-font-size;
+      }
+    }
+  }
 }
 
 @each $item in $dynamic-text-list {
-    $name: list.nth($item, 1);
-    $font-family: list.nth($item, 2);
-    $font-weight: list.nth($item, 3);
-    $font-style: list.nth($item, 4);
-    $color: list.nth($item, 5);
-    $hover-color: list.nth($item, 6);
-    $font-size: list.nth($item, 7);
-    $tablet-font-size: list.nth($item, 8);
-    $desktop-font-size: list.nth($item, 9);
+  $name: list.nth($item, 1);
+  $font-family: list.nth($item, 2);
+  $font-weight: list.nth($item, 3);
+  $font-style: list.nth($item, 4);
+  $color: list.nth($item, 5);
+  $hover-color: list.nth($item, 6);
+  $font-size: list.nth($item, 7);
+  $tablet-font-size: list.nth($item, 8);
+  $desktop-font-size: list.nth($item, 9);
 
-    %#{$name} {
-        cursor: pointer;
-        transition: all 0.5s ease-in-out;
-        font-family: $font-family;
-        font-weight: font-weight($font-weight);
-        font-style: $font-style;
-        color: $color;
-        font-size: $font-size;
-        &:hover {
-            transition: all 0.5s ease-in-out;
-            color: $hover-color;
-        }
-        @if $font-size != $tablet-font-size {
-            @include respond-to(tablet) {
-                font-size: $tablet-font-size;
-            }
-        }
-        @if $tablet-font-size != $desktop-font-size {
-            @include respond-to(desktop) {
-                font-size: $desktop-font-size;
-            }
-        }
+  %#{$name} {
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    font-family: $font-family;
+    font-weight: font-weight($font-weight);
+    font-style: $font-style;
+    color: $color;
+    font-size: $font-size;
+    &:hover {
+      transition: all 0.5s ease-in-out;
+      color: $hover-color;
     }
+    @if $font-size != $tablet-font-size {
+      @include respond-to(tablet) {
+        font-size: $tablet-font-size;
+      }
+    }
+    @if $tablet-font-size != $desktop-font-size {
+      @include respond-to(desktop) {
+        font-size: $desktop-font-size;
+      }
+    }
+  }
 }
 
 %container {
-    @include size(default, 320px);
-    @include spacing(margin, x, auto);
-    @include respond-to(tablet) {
-        @include size(default, 688px);
-    }
-    @include respond-to(desktop) {
-        @include size(default, 1296px);
-    }
+  @include size(default, 320px);
+  @include spacing(margin, x, auto);
+  @include respond-to(tablet) {
+    @include size(default, 688px);
+  }
+  @include respond-to(desktop) {
+    @include size(default, 1296px);
+  }
 }
 
 %button {
-    @include spacing(padding, (x, y), 32px, 24px);
-    @include border(all, 1px, solid, color("primary"));
+  @include spacing(padding, (x, y), 32px, 24px);
+  @include border(all, 1px, solid, color('primary'));
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    background-color: color('primary');
     transition: all 0.5s ease-in-out;
-    &:hover {
-        background-color: color("primary");
-        transition: all 0.5s ease-in-out;
-    }
+  }
+}
+
+%button-small {
+  @extend %button;
+  @include size(default, 148px, 51px);
+  @include flex(on, row, $align-items: center, $justify: center);
+  @include respond-to(tablet) {
+    @include size(default, fit-content, fit-content);
+    @include spacing(padding, (x, y), 16px, 12px);
+  }
 }
 
 %link-nav {
-    cursor: pointer;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  &:hover {
     transition: all 0.5s ease-in-out;
-    &:hover {
-        transition: all 0.5s ease-in-out;
-        font-weight: font-weight("bold");
-    }
+    font-weight: font-weight('bold');
+  }
 }

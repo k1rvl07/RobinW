@@ -1,48 +1,59 @@
-@use "@utils-scss" as *;
+@use '@utils-scss' as *;
 
 .header {
-    &__container {
-        @include spacing(padding, y, 24px);
-        @include grid(on, repeat(2, auto), repeat(2, auto), "logo burger" "nav nav");
-        @include respond-to(tablet) {
-            @include grid(on, auto, repeat(2, auto), "logo nav");
-            @include spacing(padding, y, 0px);
-        }
+  &__container {
+    @include spacing(padding, y, 24px);
+    @include grid(
+      on,
+      repeat(2, auto),
+      repeat(2, auto),
+      'logo burger' 'nav nav'
+    );
+    @include respond-to(tablet) {
+      @include grid(on, auto, repeat(2, auto), 'logo nav');
+      @include spacing(padding, y, 0px);
     }
-    &__button {
-        grid-area: burger;
-        @include grid-item-alignment(right, center);
-        @include size(default, null, 100%);
-        @include respond-to(tablet) {
-            display: none;
-        }
-        &-img {
-            @include flex(on, $align-items: center);
-        }
+  }
+  &__button {
+    grid-area: burger;
+    @include grid-item-alignment(right, center);
+    @include size(default, null, 100%);
+    @include respond-to(tablet) {
+      display: none;
     }
-    &__logo {
-        grid-area: logo;
-        @include grid-item-alignment(null, center);
+    &-img {
+      @include flex(on, $align-items: center);
     }
-    &__nav {
-        grid-area: nav;
-        display: none;
+  }
+  &__logo {
+    grid-area: logo;
+    @include grid-item-alignment(null, center);
+  }
+  &__nav {
+    grid-area: nav;
+    display: none;
+    @include respond-to(tablet) {
+      display: block;
     }
-    &__list {
-        @include flex(on, $justify: space-between);
-        @include spacing(margin, top, 24px);
-        @include respond-to(tablet) {
-            @include spacing(margin, top, 0px);
-            @include flex($justify: flex-end);
-        }
+    &--open {
+      display: block;
     }
-    &__link {
-        @include respond-to(tablet) {
-            @include spacing(padding, (x, y), 24px, 32px);
-            @include flex(on, $justify: center);
-            &:hover {
-                background-color: color("primary");
-            }
-        }
+  }
+  &__list {
+    @include flex(on, $justify: space-between);
+    @include spacing(margin, top, 24px);
+    @include respond-to(tablet) {
+      @include spacing(margin, top, 0px);
+      @include flex($justify: flex-end);
     }
+  }
+  &__link {
+    @include respond-to(tablet) {
+      @include spacing(padding, (x, y), 24px, 32px);
+      @include flex(on, $justify: center);
+      &:hover {
+        background-color: color('primary');
+      }
+    }
+  }
 }

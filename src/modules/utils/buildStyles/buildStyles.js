@@ -1,15 +1,15 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath, pathToFileURL } from 'url';
-import chokidar from 'chokidar';
+import fs from "fs";
+import path from "path";
+import { fileURLToPath, pathToFileURL } from "url";
+import chokidar from "chokidar";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const stylesDir = path.join(process.cwd(), 'src', 'styles');
-const configPath = path.join(__dirname, 'styles.config.js');
+const stylesDir = path.join(process.cwd(), "src", "styles");
+const configPath = path.join(__dirname, "styles.config.js");
 const configUrl = pathToFileURL(configPath).href;
-const outputFilePath = path.join(stylesDir, '_global.scss');
+const outputFilePath = path.join(stylesDir, "_global.scss");
 
 if (!fs.existsSync(stylesDir)) {
   console.error(`Папка ${stylesDir} не существует! Создайте её вручную.`);
@@ -33,7 +33,7 @@ const loadConfig = async () => {
 };
 
 const processFolder = (folderPath, folderConfig) => {
-  let globalStylesContent = '';
+  let globalStylesContent = "";
 
   if (!fs.existsSync(folderPath)) {
     console.warn(`Папка ${folderPath} не существует!`);
@@ -44,10 +44,13 @@ const processFolder = (folderPath, folderConfig) => {
     folderConfig.files.forEach((file) => {
       const filePath = path.join(folderPath, file);
       if (fs.existsSync(filePath)) {
-        const relativePath = path.relative(stylesDir, filePath).replace(/\\/g, '/');
-        const fileName = path.basename(relativePath, '.scss').replace(/^_/, '');
+        const relativePath = path
+          .relative(stylesDir, filePath)
+          .replace(/\\/g, "/");
+        const fileName = path.basename(relativePath, ".scss").replace(/^_/, "");
         const directoryPath = path.dirname(relativePath);
-        const fullPath = directoryPath !== '.' ? `${directoryPath}/${fileName}` : fileName;
+        const fullPath =
+          directoryPath !== "." ? `${directoryPath}/${fileName}` : fileName;
         globalStylesContent += `@forward '${fullPath}';\n`;
       } else {
         console.warn(`Файл ${filePath} не найден!`);
@@ -66,24 +69,30 @@ const processFolder = (folderPath, folderConfig) => {
   const remainingFiles = allFiles.filter((file) => {
     const filePath = path.join(folderPath, file);
     const isFile = fs.statSync(filePath).isFile();
-    const isFileInOrder = folderConfig.files && folderConfig.files.includes(file);
-    const isSubfolderInOrder =
-      folderConfig.subfolders &&
-      folderConfig.subfolders.some((subfolder) => subfolder.folder === file);
+    const isFileInOrder = folderConfig.files?.includes(file);
+    const isSubfolderInOrder = folderConfig.subfolders?.some(
+      (subfolder) => subfolder.folder === file,
+    );
     return !isFileInOrder && !isSubfolderInOrder;
   });
 
   remainingFiles.forEach((file) => {
     const filePath = path.join(folderPath, file);
-    if (fs.statSync(filePath).isFile() && file.endsWith('.scss')) {
-      const relativePath = path.relative(stylesDir, filePath).replace(/\\/g, '/');
-      const fileName = path.basename(relativePath, '.scss').replace(/^_/, '');
+    if (fs.statSync(filePath).isFile() && file.endsWith(".scss")) {
+      const relativePath = path
+        .relative(stylesDir, filePath)
+        .replace(/\\/g, "/");
+      const fileName = path.basename(relativePath, ".scss").replace(/^_/, "");
       const directoryPath = path.dirname(relativePath);
-      const fullPath = directoryPath !== '.' ? `${directoryPath}/${fileName}` : fileName;
+      const fullPath =
+        directoryPath !== "." ? `${directoryPath}/${fileName}` : fileName;
       globalStylesContent += `@forward '${fullPath}';\n`;
     } else if (fs.statSync(filePath).isDirectory()) {
       const subfolderPath = path.join(folderPath, file);
-      globalStylesContent += processFolder(subfolderPath, { files: [], subfolders: [] });
+      globalStylesContent += processFolder(subfolderPath, {
+        files: [],
+        subfolders: [],
+      });
     }
   });
 
@@ -91,7 +100,7 @@ const processFolder = (folderPath, folderConfig) => {
 };
 
 const buildStyles = (foldersOrder) => {
-  let globalStylesContent = '';
+  let globalStylesContent = "";
 
   foldersOrder.forEach((folderConfig) => {
     const folderPath = path.join(stylesDir, folderConfig.folder);
@@ -99,7 +108,7 @@ const buildStyles = (foldersOrder) => {
   });
 
   fs.writeFileSync(outputFilePath, globalStylesContent);
-  console.log('_global.scss успешно обновлён!');
+  console.log("_global.scss успешно обновлён!");
 };
 
 const main = async () => {
@@ -112,13 +121,13 @@ const main = async () => {
   });
 
   watcher
-    .on('add', (filePath) => {
+    .on("add", (filePath) => {
       console.log(`Файл ${filePath} добавлен. Пересборка _global.scss...`);
       buildStyles(foldersOrder);
     })
-    .on('change', async (filePath) => {
+    .on("change", async (filePath) => {
       if (filePath === configPath) {
-        console.log('Конфигурация изменена. Перезагрузка...');
+        console.log("Конфигурация изменена. Перезагрузка...");
         try {
           foldersOrder = await loadConfig();
         } catch (error) {
@@ -129,17 +138,16 @@ const main = async () => {
       console.log(`Файл ${filePath} изменён. Пересборка _global.scss...`);
       buildStyles(foldersOrder);
     })
-    .on('unlink', (filePath) => {
+    .on("unlink", (filePath) => {
       console.log(`Файл ${filePath} удалён. Пересборка _global.scss...`);
       buildStyles(foldersOrder);
     });
 
-  console.log('Наблюдение за файлами и конфигурацией запущено...');
+  console.log("Наблюдение за файлами и конфигурацией запущено...");
 
   buildStyles(foldersOrder);
 };
 
 main().catch((error) => {
-  console.error('Ошибка в основном процессе:', error);
+  console.error("Ошибка в основном процессе:", error);
 });
-

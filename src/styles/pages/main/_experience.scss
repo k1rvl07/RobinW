@@ -1,43 +1,54 @@
-@use "@utils-scss" as *;
+@use '@utils-scss' as *;
 
 .experience {
-    @include spacing(padding, bottom, 40px);
+  @include spacing(padding, bottom, 40px);
+  @include respond-to(tablet) {
+    @include spacing(padding, bottom, 80px);
+  }
+  @include respond-to(desktop) {
+    @include spacing(padding, bottom, 120px);
+  }
+  &__heading-container {
+    @include respond-to(desktop) {
+      @include size(default, 689px);
+    }
+  }
+  .card {
+    @include spacing(margin, top, 40px);
     @include respond-to(tablet) {
-        @include spacing(padding, bottom, 80px);
+      @include size(default, 200px);
     }
     @include respond-to(desktop) {
-        @include spacing(padding, bottom, 120px);
+      @include size(default, 416px);
     }
-    &__heading-container {
-        @include respond-to(desktop) {
-            @include size(default, 689px);
-        }
+    &__container {
+      @include respond-to(tablet) {
+        @include flex(on, $justify: space-between);
+      }
     }
-    .card {
-        @include spacing(margin, top, 40px);
-        @include respond-to(tablet) {
-            @include size(default, 200px);
-        }
-        @include respond-to(desktop) {
-            @include size(default, 416px);
-        }
-        &__container {
-            @include respond-to(tablet) {
-                @include flex(on, $justify: space-between);
-            }
-        }
-        &__title {
-            @include spacing(margin, bottom, 16px);
-            @include respond-to(tablet) {
-                @include size(default, 136px);
-                @include spacing(margin, bottom, 24px);
-            }
-            @include respond-to(desktop) {
-                @include size(default, auto);
-            }
-        }
-        &__num {
-            @extend %experience-card-num;
-        }
+    &__title {
+      @include spacing(margin, bottom, 16px);
+      @include respond-to(tablet) {
+        @include size(default, 136px);
+        @include spacing(margin, bottom, 24px);
+      }
+      @include respond-to(desktop) {
+        @include size(default, auto);
+      }
     }
+    &__num {
+      @extend %experience-card-num;
+    }
+    &__company {
+      &--green-accent {
+        color: color('green accent');
+      }
+      &--blue-accent {
+        color: color('blue accent');
+      }
+      &--pink-accent {
+        color: color('pink accent');
+      }
+    }
+  }
 }

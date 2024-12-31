@@ -1,1 +1,1 @@
-export { useInfiniteScroll } from './useInfiniteScroll.js';
+export { useInfiniteScroll } from "./useInfiniteScroll.js";

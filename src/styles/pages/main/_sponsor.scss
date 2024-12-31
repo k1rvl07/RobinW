@@ -1,31 +1,31 @@
-@use "@utils-scss" as *;
+@use '@utils-scss' as *;
 
 .sponsor {
-    .slider {
-        @include spacing(margin, x, auto);
-        @include size(default, 360px, 420px);
-        white-space: nowrap;
-        @include respond-to("tablet") {
-            @include size(default, 768px, 420px);
-        }
-        @include respond-to("desktop") {
-            overflow: hidden;
-            @include size(default, 1440px, 140px);
-        }
-        &__slides {
-            @include flex(on, $justify: space-between, $wrap: wrap);
-            @include respond-to("desktop") {
-                @include flex($wrap: nowrap);
-                @include size(default, fit-content, null);
-            }
-        }
-        &__slide {
-            @include size(default, 180px, 140px);
-            @include flex(on, $justify: center, $align-items: center);
-            @include border(all, 1px, solid, color("level 1"));
-            @include respond-to("tablet") {
-                @include size(default, 384px, null);
-            }
-        }
+  .slider {
+    @include spacing(margin, x, auto);
+    @include size(default, 360px, 420px);
+    white-space: nowrap;
+    @include respond-to('tablet') {
+      @include size(default, 768px, 420px);
     }
+    @include respond-to('desktop') {
+      overflow: hidden;
+      @include size(default, 1440px, 140px);
+    }
+    &__slides {
+      @include flex(on, $justify: space-between, $wrap: wrap);
+      @include respond-to('desktop') {
+        @include flex($wrap: nowrap);
+        @include size(default, fit-content, null);
+      }
+    }
+    &__slide {
+      @include size(default, 180px, 140px);
+      @include flex(on, $justify: center, $align-items: center);
+      @include border(all, 1px, solid, color('level 1'));
+      @include respond-to('tablet') {
+        @include size(default, 384px, null);
+      }
+    }
+  }
 }

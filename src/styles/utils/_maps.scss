@@ -1,38 +1,38 @@
-@use "sass:map";
-@use "sass:list";
-@use "sass:math";
-@use "sass:meta";
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:meta';
 
 $colors-map: (
-    "base": #000000,
-    "level 1": #181823,
-    "light grey": #DEECF9,
-    "dark grey": #C7E0F4,
-    "text-black": #5B6876,
-    "text-white": #8491A0,
-    "text": #FFFFFF,
-    "primary": #5221E6,
-    "green accent": #3CC74E,
-    "pink accent": #E95D90,
-    "peach accent": #FFF3E4,
-    "violet accent": #FBE4FF,
+  'base': #000000,
+  'level 1': #181823,
+  'light grey': #deecf9,
+  'dark grey': #c7e0f4,
+  'text-black': #5b6876,
+  'text-white': #8491a0,
+  'text': #ffffff,
+  'primary': #5221e6,
+  'green accent': #3cc74e,
+  'blue accent': #609bff,
+  'pink accent': #e95d90,
+  'peach accent': #fff3e4,
+  'violet accent': #fbe4ff,
 );
 
 $font-weights-map: (
-    "thin": 100,
-    "extra-light": 200,
-    "light": 300,
-    "regular": 400,
-    "medium": 500,
-    "semi-bold": 600,
-    "bold": 700,
-    "extra-bold": 800,
-    "black": 900,
-    "extra-black": 1000
+  'thin': 100,
+  'extra-light': 200,
+  'light': 300,
+  'regular': 400,
+  'medium': 500,
+  'semi-bold': 600,
+  'bold': 700,
+  'extra-bold': 800,
+  'black': 900,
+  'extra-black': 1000,
 );
 
 $breakpoints-map: (
-    tablet: 768px,
-    desktop: 1440px
+  tablet: 768px,
+  desktop: 1440px,
 );
-

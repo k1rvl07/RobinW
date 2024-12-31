@@ -1,83 +1,91 @@
-@use "@utils-scss" as *;
+@use '@utils-scss' as *;
 
 .project {
-    @include spacing(padding, y, 60px);
+  @include spacing(padding, y, 60px);
+  @include respond-to(tablet) {
+    @include spacing(padding, y, 80px);
+  }
+  @include respond-to(desktop) {
+    @include spacing(padding, y, 120px);
+  }
+  &__container {
+    @include respond-to(desktop) {
+      @include grid(
+        on,
+        repeat(2, auto) 220px auto 220px,
+        repeat(2, auto),
+        'heading-container card-2' 'card-1 card-2' 'card-1 card-4'
+          'card-3 card-4' 'card-3 button',
+        $gap: 24px,
+        $justify-content: center
+      );
+    }
+  }
+  &__button {
+    grid-area: button;
+    @include flex(on);
+    @include spacing(margin, x, auto);
+    @include spacing(margin, top, 40px);
     @include respond-to(tablet) {
-        @include spacing(padding, y, 80px);
+      @include spacing(margin, top, 48px);
     }
     @include respond-to(desktop) {
-        @include spacing(padding, y, 120px);
+      @include grid-item-alignment(center, center);
+      @include spacing(margin, top, 0px);
     }
-    &__container {
-        @include respond-to(desktop) {
-            @include grid(on, repeat(2, auto) 220px auto 220px, repeat(2, auto), "heading-container card-2" "card-1 card-2" "card-1 card-4" "card-3 card-4" "card-3 button", $gap: 24px, $justify-content: center);          
-        }
+  }
+  &__heading-container {
+    grid-area: heading-container;
+    @include spacing(margin, bottom, 80px);
+    @include respond-to(desktop) {
+      @include size(default, 572px);
+      @include spacing(margin, bottom, 56px);
     }
-    &__button {
-        grid-area: button;
-        @include flex(on);
-        @include spacing(margin, x, auto);
-        @include spacing(margin, top, 40px);
-        @include respond-to(tablet) {
-            @include spacing(margin, top, 48px);
-        }
-        @include respond-to(desktop) {
-            @include grid-item-alignment(center, center);
-            @include spacing(margin, top, 0px);
-        }
+  }
+  .card {
+    @include flex(on, column, $align-items: center);
+    background-color: color('level 1');
+    @include respond-to(desktop) {
+      @include size(default, 636px);
     }
-    &__heading-container {
-        grid-area: heading-container;
-        @include spacing(margin, bottom, 80px);
-        @include respond-to(desktop) {
-            @include size(default, 572px);
-            @include spacing(margin, bottom, 56px);
-        }
+    &:nth-child(n + 3) {
+      @include spacing(margin, top, 40px);
+      @include respond-to(tablet) {
+        @include spacing(margin, top, 48px);
+      }
+      @include respond-to(desktop) {
+        @include spacing(margin, top, 0px);
+      }
     }
-    .card {
-        @include flex(on, column, $align-items: center);
-        background-color: color("level 1");
-        @include respond-to(desktop) {
-            @include size(default, 636px);
-        }
-        &:nth-child(n+3) {
-            @include spacing(margin, top, 40px);
-            @include respond-to(tablet) {
-                @include spacing(margin, top, 48px);
-            }
-            @include respond-to(desktop) {
-                @include spacing(margin, top, 0px);
-            }
-        }
-        &:nth-child(2) {
-            grid-area: card-1;
-        }
-        &:nth-child(3) {
-            grid-area: card-2;
-        }
-        &:nth-child(4) {
-            grid-area: card-3;
-        }
-        &:nth-child(5) {
-            grid-area: card-4;
-        }
-        &__img {
-            @include image-fit(cover, center);
-            @include size(default, null, 400px);
-            @include respond-to(tablet) {
-                @include size(default, 688px, 600px);
-            }
-        }
-        &__content {
-            @include flex(on, column, $justify: space-between);
-            @include size(default, 256px, 260px);
-            @include spacing(margin, y, 40px);
-            @include respond-to(tablet) {
-                @include size(default, 622px, 130px);
-            }
-            @include respond-to(desktop) {
-                @include size(default, 572px);
-            }
-        }
+    &:nth-child(2) {
+      grid-area: card-1;
     }
+    &:nth-child(3) {
+      grid-area: card-2;
+    }
+    &:nth-child(4) {
+      grid-area: card-3;
+    }
+    &:nth-child(5) {
+      grid-area: card-4;
+    }
+    &__img {
+      @include image-fit(cover, center);
+      @include size(default, null, 400px);
+      @include respond-to(tablet) {
+        @include size(default, 688px, 600px);
+      }
+    }
+    &__content {
+      @include flex(on, column, $justify: space-between);
+      @include size(default, 256px, 260px);
+      @include spacing(margin, y, 40px);
+      @include respond-to(tablet) {
+        @include size(default, 622px, 130px);
+      }
+      @include respond-to(desktop) {
+        @include size(default, 572px);
+      }
+    }
+  }
 }

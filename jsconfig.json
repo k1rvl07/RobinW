@@ -1,43 +1,19 @@
 {
-    "compilerOptions": {
-        "baseUrl": "src",
-        "paths": {
-            "@assets/*": [
-                "assets/*"
-            ],
-            "@components/*": [
-                "components/*"
-            ],
-            "@hooks/*": [
-                "hooks/*"
-            ],
-            "@pages/*": [
-                "pages/*"
-            ],
-            "@img/*": [
-                "assets/img/*"
-            ],
-            "@svg/*": [
-                "assets/svg/*"
-            ],
-            "@styles/*": [
-                "styles/*"
-            ],
-            "@data/*": [
-                "data/*"
-            ],
-            "@modules/*": [
-                "modules/*"
-            ],
-            "@exports/*": [
-                "modules/exports/*"
-            ],
-            "@utils-scss/*": [
-                "styles/utils/utils.scss*"
-            ]
-        }
-    },
-    "include": [
-        "src"
-    ]
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@assets/*": ["assets/*"],
+      "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
+      "@pages/*": ["pages/*"],
+      "@img/*": ["assets/img/*"],
+      "@svg/*": ["assets/svg/*"],
+      "@styles/*": ["styles/*"],
+      "@data/*": ["data/*"],
+      "@modules/*": ["modules/*"],
+      "@exports/*": ["modules/exports/*"],
+      "@utils-scss/*": ["styles/utils/utils.scss*"]
+    }
+  },
+  "include": ["src"]
 }

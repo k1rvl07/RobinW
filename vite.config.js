@@ -18,13 +18,13 @@ export default defineConfig({
       '@modules': path.resolve(__dirname, './src/modules'),
       '@exports': path.resolve(__dirname, './src/modules/exports'),
       '@utils-scss': path.resolve(__dirname, './src/styles/utils/utils.scss'),
-    }
+    },
   },
   css: {
     preprocessorOptions: {
       scss: {
         quietDeps: true,
-        api: "modern-compiler"
+        api: 'modern-compiler',
       },
     },
   },

@@ -1,48 +1,48 @@
-@use "@utils-scss" as *;
+@use '@utils-scss' as *;
 
 .skillset {
-    @include spacing(padding, y, 64px);
+  @include spacing(padding, y, 64px);
+  @include respond-to(tablet) {
+    @include spacing(padding, y, 80px);
+  }
+  @include respond-to(desktop) {
+    @include spacing(padding, y, 120px);
+  }
+  &__container {
+    @include respond-to(desktop) {
+      @include flex(on, row, $justify: space-between);
+    }
+  }
+  &__main-content {
+    @include spacing(margin, bottom, 48px);
+    @include respond-to(desktop) {
+      @include size(default, 368px);
+    }
+  }
+  &__text {
+    @include spacing(padding, top, 16px);
     @include respond-to(tablet) {
-        @include spacing(padding, y, 80px);
+      @include spacing(padding, top, 24px);
+    }
+  }
+  .card {
+    @include respond-to(tablet) {
+      @include size(default, 320px);
     }
     @include respond-to(desktop) {
-        @include spacing(padding, y, 120px);
+      @include size(default, 416px);
     }
     &__container {
-        @include respond-to(desktop) {
-            @include flex(on, row, $justify: space-between);
-        }
+      @include flex(on, column, $gap: 48px);
+      @include respond-to(tablet) {
+        @include flex($direction: row, $justify: space-between, $wrap: wrap);
+      }
+      @include respond-to(desktop) {
+        @include size(default, 880px);
+      }
     }
-    &__main-content {
-        @include spacing(margin, bottom, 48px);
-        @include respond-to(desktop) {
-            @include size(default, 368px);
-        }
+    &__title {
+      @include spacing(margin, (top, bottom), 24px, 12px);
     }
-    &__text {
-        @include spacing(padding, top, 16px);
-        @include respond-to(tablet) {
-            @include spacing(padding, top, 24px);
-        }
-    }
-    .card {
-        @include respond-to(tablet) {
-            @include size(default, 320px);
-        }
-        @include respond-to(desktop) {
-            @include size(default, 416px);
-        }
-        &__container {
-            @include flex(on, column, $gap: 48px);
-            @include respond-to(tablet) {
-                @include flex($direction: row, $justify: space-between, $wrap: wrap);
-            }
-            @include respond-to(desktop) {
-                @include size(default, 880px);
-            }
-        }
-        &__title {
-            @include spacing(margin, (top, bottom), 24px, 12px);
-        }
-    }
+  }
 }

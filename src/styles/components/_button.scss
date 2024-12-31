@@ -1,6 +1,10 @@
-@use "@utils-scss" as *;
+@use '@utils-scss' as *;
 
 .button {
-    @extend %button;
+  @extend %button;
+  @extend %button-text;
+  &-small {
+    @extend %button-small;
     @extend %button-text;
+  }
 }

@@ -1,27 +1,30 @@
-@use "sass:map";
-@use "sass:list";
-@use "sass:math";
-@use "sass:meta";
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:meta';
 
-@use "functions.scss" as *;
+@use 'functions.scss' as *;
 
 $text-list: (
-    "hero-title" "Sen" bold normal color("text") 32px 56px 78px,
-    "hero-text" "Sen" regular normal color("text") 18px 18px 18px,
-    "heading-second-white" "Sen" bold normal color("text") 32px 55px 55px,
-    "heading-second-black" "Sen" bold normal color("level 1") 32px 55px 55px,
-    "subheading" "Sen" bold normal color("text-black") 16px 16px 16px,
-    "experience-card-num" "Sen" regular normal color("light grey") 117px 117px 117px,
-    "heading-third" "Sen" bold normal color("text") 24px 24px 24px,
-    "text-black" "Sen" regular normal color("text-black") 18px 18px 18px,
-    "text-white" "Sen" regular normal color("text-white") 18px 18px 18px,
-    "text-black-small" "Sen" regular normal color("text-black") 16px 16px 16px,
-    "text-white-small" "Sen" regular normal color("text-white") 16px 16px 16px,
-    "button-text" "Sen" bold normal color("text") 18px 18px 18px,
-    "link-nav" "Sen" regular normal color("text") 16px 16px 16px
+  'hero-title' 'Sen' bold normal color('text') 32px 56px 78px,
+  'hero-text' 'Sen' regular normal color('text') 18px 18px 18px,
+  'heading-second-white' 'Sen' bold normal color('text') 32px 55px 55px,
+  'heading-second-black' 'Sen' bold normal color('level 1') 32px 55px 55px,
+  'subheading' 'Sen' bold normal color('text-black') 16px 16px 16px,
+  'experience-card-num' 'Sen' regular normal color('light grey') 117px 117px
+    117px,
+  'heading-third' 'Sen' bold normal color('text') 24px 24px 24px,
+  'text-black' 'Sen' regular normal color('text-black') 18px 18px 18px,
+  'text-white' 'Sen' regular normal color('text-white') 18px 18px 18px,
+  'text-black-small' 'Sen' regular normal color('text-black') 16px 16px 16px,
+  'text-white-small' 'Sen' regular normal color('text-white') 16px 16px 16px,
+  'button-text' 'Sen' bold normal color('text') 18px 18px 18px,
+  'link-nav' 'Sen' regular normal color('text') 16px 16px 16px
 );
 
 $dynamic-text-list: (
-    "link-black" "Sen" regular normal color("level 1") color("primary") 16px 16px 16px,
-    "link-white" "Sen" regular normal color("text") color("primary") 16px 16px 16px,
+  'link-black' 'Sen' regular normal color('level 1') color('primary') 16px 16px
+    16px,
+  'link-white' 'Sen' regular normal color('text') color('primary') 16px 16px
+    16px
 );

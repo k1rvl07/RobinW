@@ -1,22 +1,22 @@
-export const headerLinks = [
-    {
-        id: "1",
-        text: "Experience",
-        href: "#",
-    },
-    {
-        id: "2",
-        text: "Work",
-        href: "#",
-    },
-    {
-        id: "3",
-        text: "Photography",
-        href: "#",
-    },
-    {
-        id: "4",
-        text: "Contact",
-        href: "#",
-    },
+export const HEADER_LINKS = [
+  {
+    id: "1",
+    text: "Experience",
+    href: "#",
+  },
+  {
+    id: "2",
+    text: "Work",
+    href: "#",
+  },
+  {
+    id: "3",
+    text: "Photography",
+    href: "#",
+  },
+  {
+    id: "4",
+    text: "Contact",
+    href: "#",
+  },
 ];
