@@ -1,4 +1,4 @@
-import { components, data, hooks, svgImages } from "@exports";
+import { assets, components, data, hooks } from "@exports";
 import { useState } from "react";
 
 export const Header = () => {
@@ -16,11 +16,11 @@ export const Header = () => {
 
   return (
     <Section tagName="header" className="header">
-      <img className="header__logo" src={svgImages.logo} alt="Vector illustration" />
+      <img className="header__logo" src={assets.logo} alt="Vector illustration" />
       <button type="button" className="header__button" onClick={toggleMenu}>
         <img
           className="header__button-img"
-          src={isMenuOpen ? svgImages.cross : svgImages.burger}
+          src={isMenuOpen ? assets.cross : assets.burger}
           alt=""
         />
       </button>

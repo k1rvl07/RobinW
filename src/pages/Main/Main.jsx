@@ -1,4 +1,4 @@
-import { components, data, hooks, imgImages, svgImages } from "@exports";
+import { assets, components, data, hooks } from "@exports";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -36,7 +36,7 @@ export const Main = () => {
       const imagePromises = PHOTOGRAPHY_IMGS.map((img) => {
         return new Promise((resolve, reject) => {
           const image = new Image();
-          image.src = imgImages[img.image];
+          image.src = assets[img.image];
           image.onload = resolve;
           image.onerror = reject;
         });
@@ -92,7 +92,7 @@ export const Main = () => {
       <Header />
       <main>
         <Section className="hero">
-          <img className="hero__img" src={imgImages.hero} alt="" />
+          <img className="hero__img" src={assets.hero} alt="" />
           <div className="hero__content">
             <h1 className="hero__title">
               I’m Robin Williams. A Product Designer{" "}
@@ -122,7 +122,7 @@ export const Main = () => {
           heading="Philosophy & values"
           text="I think everyone wants the same thing - relationship with humanity, peace with the metaphysical, and experience with the universe. I try to grasp these things with my values: authenticity, creativity, & hospitality."
           link="More about me"
-          img={imgImages.sphere}
+          img={assets.sphere}
         />
         <Section
           className="skillset"
@@ -137,7 +137,7 @@ export const Main = () => {
             {SKILLSET_CARDS.map((skillsetCard) => (
               <SkillsetCard
                 key={skillsetCard.id}
-                icon={svgImages[skillsetCard.icon]}
+                icon={assets[skillsetCard.icon]}
                 title={skillsetCard.title}
                 text={skillsetCard.text}
               />
@@ -150,7 +150,7 @@ export const Main = () => {
               {duplicatedSlides.map((sponsorSlide, index) => (
                 <SponsorSlide
                   key={`${sponsorSlide.id}-${index}`}
-                  icon={svgImages[sponsorSlide.icon]}
+                  icon={assets[sponsorSlide.icon]}
                   className="slider__slide"
                 />
               ))}
@@ -174,7 +174,7 @@ export const Main = () => {
           heading="Instagram"
           text="If you area a person who enjoys photography, then I highly recommend that you check out my Instagram. I’m an avid traveller and I capture the best moments that I would love to cherish with the world"
           link="More about me"
-          img={imgImages.plane}
+          img={assets.plane}
         />
         <Section
           className="dribble"
@@ -192,10 +192,10 @@ export const Main = () => {
             className="dribble__img"
             src={
               screenWidth >= 1440
-                ? imgImages.dribble_lg
+                ? assets.dribble_lg
                 : screenWidth >= 768
-                  ? imgImages.dribble_md
-                  : imgImages.dribble_sm
+                  ? assets.dribble_md
+                  : assets.dribble_sm
             }
             alt=""
           />
@@ -258,7 +258,7 @@ export const Main = () => {
                   <motion.img
                     key={img.id}
                     className="photography__img"
-                    src={imgImages[img.image]}
+                    src={assets[img.image]}
                     alt={`Photography ${img.id}`}
                     variants={itemVariants}
                   />
