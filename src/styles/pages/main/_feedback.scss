@@ -1,0 +1,51 @@
+@use "@utils-scss" as *;
+
+.feedback {
+    @include spacing(padding, y, 48px);
+    @include respond-to(tablet) {
+        @include spacing(padding, y, 80px);
+    }
+    @include respond-to(desktop) {
+        @include spacing(padding, y, 120px);
+    }
+    &__container {
+        @include flex(on, column, $gap: 48px);
+        @include respond-to(tablet) {
+            @include flex($direction: row, $justify: space-between, $gap: 0px);
+        }
+    }
+    &__main-content {
+        @include respond-to(tablet) {
+            @include size(default, 333px);
+        }
+        @include respond-to(desktop) {
+            @include size(default, 576px);
+        }
+    }
+    &__heading {
+        @include spacing(margin, bottom, 16px);
+        @include respond-to(tablet) {
+            @include spacing(margin, bottom, 24px);
+        }
+    }
+    &__form {
+        @include flex(on, column, $gap: 40px);
+        @include size(default, null, null);
+        @include respond-to(tablet) {
+            @include size(default, 332px, null);
+        }
+        @include respond-to(desktop) {
+            @include size(default, 526px, null);
+        }
+    }
+    .field {
+        &__input {
+            @include size(default, null, 50px);
+            @include spacing(padding, (x, y), 16px, 12px);
+        }
+        &__textarea {
+            @include size(default, null, 100px);
+            @include spacing(padding, (x, y), 16px, 12px);
+        }
+    }
+}

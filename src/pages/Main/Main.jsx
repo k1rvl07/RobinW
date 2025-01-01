@@ -13,6 +13,7 @@ export const Main = () => {
     AboutCard,
     SponsorSlide,
     Button,
+    Field
   } = components;
   const {
     EXPERIENCE_CARDS,
@@ -22,6 +23,7 @@ export const Main = () => {
     ABOUT_CARDS,
     PHOTOGRAPHY_BUTTONS,
     PHOTOGRAPHY_IMGS,
+    FEEDBACK_FIELDS
   } = data;
   const { useInfiniteScroll, useScreenSize } = hooks;
   const { width: screenWidth } = useScreenSize();
@@ -231,12 +233,11 @@ export const Main = () => {
             {PHOTOGRAPHY_BUTTONS.map((photographyButton) => (
               <Button
                 key={photographyButton.id}
-                type="small"
-                className={`photography__button ${
-                  activePhotographyButton === photographyButton.id
+                size="small"
+                className={`photography__button ${activePhotographyButton === photographyButton.id
                     ? "photography__button--active"
                     : ""
-                }`}
+                  }`}
                 onClick={() => handlePhotographyButtonClick(photographyButton.id)}
               >
                 {photographyButton.text}
@@ -266,6 +267,14 @@ export const Main = () => {
               </motion.div>
             </AnimatePresence>
           )}
+        </Section>
+        <Section className="feedback" isHasHeading={true} heading="Let’s get started" headingType="white" isHasText={true} text="Now that you know a lot about me, let me know if you are interested to work with me." textType="white">
+          <form action="" className="feedback__form">
+            {FEEDBACK_FIELDS.map((field) => (
+              <Field key={field.id} type={field.type} tagName={field.tagName} label={field.label} id={field.id} />
+            ))}
+            <Button type="submit" className="feedback__button">Let’s get started</Button>
+          </form>
         </Section>
       </main>
     </>

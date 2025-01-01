@@ -64,6 +64,11 @@ select {
   background-color: transparent;
 }
 
+textarea {
+  resize: none;
+  outline: none;
+}
+
 input::-ms-clear {
   display: none;
 }

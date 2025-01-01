@@ -1,5 +1,5 @@
 import { hooks } from "@exports";
-import { use, useCallback } from "react";
+import { useCallback } from "react";
 import { useEffect, useRef } from "react";
 
 export const useInfiniteScroll = (speed = 1, breakpoint = 768) => {

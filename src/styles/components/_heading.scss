@@ -16,3 +16,8 @@
     @extend %heading-second-black;
   }
 }
+
+.heading-third {
+  line-height: 1.5;
+  @extend %heading-third;
+}

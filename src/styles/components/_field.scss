@@ -1,0 +1,12 @@
+@use "@utils-scss" as *;
+
+.field {
+    @include flex(on, column, $gap: 8px);
+    &__label {
+        @extend %label;
+    }
+    &__input, &__textarea {
+        @extend %field-text;
+        background-color: color('level 1');
+    }
+}

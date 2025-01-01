@@ -7,5 +7,3 @@ export const assets = Object.keys(assetsModules).reduce((acc, path) => {
   acc[fileName] = assetsModules[path].default;
   return acc;
 }, {});
-
-console.log(assets);
