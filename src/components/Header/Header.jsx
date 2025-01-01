@@ -2,7 +2,7 @@ import { assets, components, data, hooks } from "@exports";
 import { useState } from "react";
 
 export const Header = () => {
-  const { Section, Link } = components;
+  const { Section, Nav } = components;
   const { HEADER_LINKS } = data;
   const { useScreenSize } = hooks;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,17 +24,7 @@ export const Header = () => {
           alt=""
         />
       </button>
-      <nav className={navClassName}>
-        <ul className="header__list">
-          {HEADER_LINKS.map((headerLink) => (
-            <li key={headerLink.id} className="header__item">
-              <Link isHeaderLink={true} link={headerLink}>
-                {headerLink.text}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <Nav type="header" className={navClassName} data={HEADER_LINKS} />
     </Section>
   );
 };

@@ -10,7 +10,7 @@
   }
   &__container {
     @include respond-to(desktop) {
-      @include flex(on, row, $justify: space-between);
+      @include flex(on, $justify: space-between);
     }
   }
   &__main-content {

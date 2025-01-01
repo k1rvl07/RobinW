@@ -5,14 +5,14 @@ export const Heading = ({
   level = 2,
   isHasSubHeading = false,
   subheading,
-  headingType = "black",
+  headingColor = "black",
   children,
   className,
 }) => {
   const headingClass = classNames(
     {
-      "heading-second-white": level === 2 && headingType === "white",
-      "heading-second-black": level === 2 && headingType === "black",
+      "heading-second-white": level === 2 && headingColor === "white",
+      "heading-second-black": level === 2 && headingColor === "black",
       "heading-third": level === 3,
     },
     level === 2 ? `${className}__heading` : className,

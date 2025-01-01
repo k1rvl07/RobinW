@@ -3,23 +3,24 @@ import React from "react";
 
 import { components } from "@exports";
 
-export const SocialSectionWhite = ({ heading, text, img, href = "#", link }) => {
+export const SectionSocialWhite = ({ id, heading, text, img, href = "#", link, className }) => {
   const { Section } = components;
   return (
     <Section
+      id={id}
       isHasText={true}
       isHasLink={true}
       text={text}
-      textType="black"
+      textColor="black"
       link={link}
-      linkType="black"
+      linkColor="black"
       isHasHeading={true}
       heading={heading}
       href={href}
       tagName="section"
-      className={classNames("social-section-white")}
+      className={classNames(className, "section-social-white")}
     >
-      <img className="social-section-white__img" src={img} alt="" />
+      <img className="section-social-white__img" src={img} alt="" />
     </Section>
   );
 };

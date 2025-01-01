@@ -15,8 +15,7 @@
     }
   }
   &__button {
-    grid-area: burger;
-    @include grid-item-alignment(right, center);
+    @include grid-item(burger, right, center);
     @include size(default, null, 100%);
     @include respond-to(tablet) {
       display: none;
@@ -26,11 +25,10 @@
     }
   }
   &__logo {
-    grid-area: logo;
-    @include grid-item-alignment(null, center);
+    @include grid-item(logo, null, center);
   }
   &__nav {
-    grid-area: nav;
+    @include grid-item(nav);
     display: none;
     @include respond-to(tablet) {
       display: block;

@@ -1,13 +1,13 @@
 import classNames from "classnames";
 import React from "react";
 
-export const Text = ({ type, children, className, size = "normal" }) => {
+export const Text = ({ color, children, className, size = "normal" }) => {
   const textClass = classNames(
     {
-      "text-black": type === "black" && size === "normal",
-      "text-white": type === "white" && size === "normal",
-      "text-black-small": type === "black" && size === "small",
-      "text-white-small": type === "white" && size === "small",
+      "text-black": color === "black" && size === "normal",
+      "text-white": color === "white" && size === "normal",
+      "text-black-small": color === "black" && size === "small",
+      "text-white-small": color === "white" && size === "small",
     },
     className,
   );

@@ -13,13 +13,17 @@
         @include respond-to(tablet) {
             @include flex($direction: row, $justify: space-between, $gap: 0px);
         }
+        @include respond-to(desktop) {
+            @include size(default, 1076px);
+            @include spacing(margin, x, auto);
+        }
     }
     &__main-content {
         @include respond-to(tablet) {
             @include size(default, 333px);
         }
         @include respond-to(desktop) {
-            @include size(default, 576px);
+            @include size(default, 526px);
         }
     }
     &__heading {

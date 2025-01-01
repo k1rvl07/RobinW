@@ -18,7 +18,7 @@
   }
   &__container {
     @include respond-to(tablet) {
-      @include flex(on, row, $justify: space-between);
+      @include flex(on, $justify: space-between);
     }
   }
   &__text {

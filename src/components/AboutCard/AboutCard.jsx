@@ -10,10 +10,10 @@ export const AboutCard = ({ aboutCard }) => {
         <Heading level={3} className="card__title">
           {aboutCard.title}
         </Heading>
-        <Text type="white" className="card__name">
+        <Text color="white" className="card__name">
           {aboutCard.name}
         </Text>
-        <Text type="white" className="card__company">
+        <Text color="white" className="card__company">
           {aboutCard.company}
         </Text>
       </div>

@@ -1,5 +1,13 @@
 @use '../utils/utils.scss' as *;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: color('base');
+}
+
+a {
+  cursor: pointer;
 }

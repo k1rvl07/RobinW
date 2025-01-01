@@ -1,6 +1,6 @@
 @use '@utils-scss' as *;
 
-.social-section-white {
+.section-social-white {
   background-color: color('peach accent');
   @include size(default, null, 877px);
   @include respond-to(tablet) {
@@ -8,7 +8,7 @@
   }
   &__container {
     @include respond-to(tablet) {
-      @include flex(on, row, $justify: space-between);
+      @include flex(on, $justify: space-between);
       @include size(default, null, 600px);
     }
   }

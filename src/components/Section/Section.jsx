@@ -4,19 +4,20 @@ import React from "react";
 export const Section = ({
   tagName: Tag = "section",
   className,
+  id = className,
   children,
   isHasContainer = true,
   isHasHeading = false,
   heading,
-  headingType = "black",
+  headingColor = "black",
   isHasSubHeading = false,
   subheading,
   isHasText = false,
   text,
-  textType,
+  textColor,
   isHasLink = false,
   link,
-  linkType,
+  linkColor,
   href = "#",
 }) => {
   const { Container, Heading, Text, Link } = components;
@@ -32,7 +33,7 @@ export const Section = ({
               level={2}
               isHasSubHeading={isHasSubHeading}
               subheading={subheading}
-              headingType={headingType}
+              headingColor={headingColor}
               className={className}
             >
               {heading}
@@ -40,13 +41,13 @@ export const Section = ({
           )}
 
           {isHasText && (
-            <Text type={textType} className={`${className}__text`}>
+            <Text color={textColor} className={`${className}__text`}>
               {text}
             </Text>
           )}
 
           {isHasLink && (
-            <Link href={href} type={linkType} className={`${className}__link`}>
+            <Link href={href} color={linkColor} className={`${className}__link`}>
               {link}
             </Link>
           )}
@@ -58,7 +59,7 @@ export const Section = ({
               level={2}
               isHasSubHeading={isHasSubHeading}
               subheading={subheading}
-              headingType={headingType}
+              headingColor={headingColor}
               className={className}
             >
               {heading}
@@ -66,13 +67,13 @@ export const Section = ({
           )}
 
           {isHasText && (
-            <Text type={textType} className={`${className}__text`}>
+            <Text color={textColor} className={`${className}__text`}>
               {text}
             </Text>
           )}
 
           {isHasLink && (
-            <Link href={href} type={linkType} className={`${className}__link`}>
+            <Link href={href} color={linkColor} className={`${className}__link`}>
               {link}
             </Link>
           )}
@@ -84,7 +85,7 @@ export const Section = ({
   );
 
   return (
-    <Tag className={className}>
+    <Tag id={id} className={className}>
       {isHasContainer ? (
         <Container>
           <div className={`${className}__container`}>{content}</div>

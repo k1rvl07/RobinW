@@ -222,7 +222,11 @@
   }
 }
 
-@mixin grid-item-alignment($justify-self: null, $align-self: null) {
+@mixin grid-item($grid-area: null, $justify-self: null, $align-self: null) {
+  @if $grid-area != null {
+    grid-area: $grid-area;
+  }
+  
   @if $justify-self != null {
     justify-self: $justify-self;
   }

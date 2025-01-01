@@ -10,7 +10,7 @@ export const ProjectCard = ({ projectCard }) => {
         <Heading level={3} className="card__title">
           {projectCard.title}
         </Heading>
-        <Text type="white" className="card__text" size="small">
+        <Text color="white" className="card__text" size="small">
           {projectCard.text}
         </Text>
       </div>

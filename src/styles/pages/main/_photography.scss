@@ -14,7 +14,7 @@
   &__button {
     &-container {
       @include spacing(margin, y, 40px);
-      @include flex(on, row, $gap: 24px, $wrap: wrap);
+      @include flex(on, $gap: 24px, $wrap: wrap);
       @include respond-to(tablet) {
         @include spacing(margin, top, 64px);
       }
@@ -32,7 +32,7 @@
       @include size(default, 306px);
     }
     &-container {
-      @include flex(on, row, $gap: 24px, $wrap: wrap);
+      @include flex(on, $gap: 24px, $wrap: wrap);
     }
   }
 }

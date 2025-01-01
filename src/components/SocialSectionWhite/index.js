@@ -1,1 +1,0 @@
-export { SocialSectionWhite } from "./SocialSectionWhite";

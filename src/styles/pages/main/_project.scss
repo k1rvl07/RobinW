@@ -22,7 +22,6 @@
     }
   }
   &__button {
-    grid-area: button;
     @include flex(on);
     @include spacing(margin, x, auto);
     @include spacing(margin, top, 40px);
@@ -30,7 +29,7 @@
       @include spacing(margin, top, 48px);
     }
     @include respond-to(desktop) {
-      @include grid-item-alignment(center, center);
+      @include grid-item(button,center, center);
       @include spacing(margin, top, 0px);
     }
   }
@@ -57,17 +56,10 @@
         @include spacing(margin, top, 0px);
       }
     }
-    &:nth-child(2) {
-      grid-area: card-1;
-    }
-    &:nth-child(3) {
-      grid-area: card-2;
-    }
-    &:nth-child(4) {
-      grid-area: card-3;
-    }
-    &:nth-child(5) {
-      grid-area: card-4;
+    @for $i from 2 through 5 {
+      &:nth-child(#{$i}) {
+        grid-area: card-#{($i - 1)};
+      }
     }
     &__img {
       @include image-fit(cover, center);

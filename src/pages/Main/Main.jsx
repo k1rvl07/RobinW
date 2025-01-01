@@ -7,13 +7,14 @@ export const Main = () => {
     Header,
     Section,
     ExperienceCard,
-    SocialSectionWhite,
+    SectionSocialWhite,
     SkillsetCard,
     ProjectCard,
     AboutCard,
     SponsorSlide,
     Button,
-    Field
+    Field,
+    Footer,
   } = components;
   const {
     EXPERIENCE_CARDS,
@@ -23,7 +24,7 @@ export const Main = () => {
     ABOUT_CARDS,
     PHOTOGRAPHY_BUTTONS,
     PHOTOGRAPHY_IMGS,
-    FEEDBACK_FIELDS
+    FEEDBACK_FIELDS,
   } = data;
   const { useInfiniteScroll, useScreenSize } = hooks;
   const { width: screenWidth } = useScreenSize();
@@ -110,7 +111,7 @@ export const Main = () => {
           className="experience"
           isHasHeading={true}
           heading="Companies I have worked for in the past"
-          headingType="white"
+          headingColor="white"
           isHasSubHeading={true}
           subheading="WORK EXPERIENCE"
         >
@@ -120,7 +121,8 @@ export const Main = () => {
             ))}
           </div>
         </Section>
-        <SocialSectionWhite
+        <SectionSocialWhite
+          id="philosophy"
           heading="Philosophy & values"
           text="I think everyone wants the same thing - relationship with humanity, peace with the metaphysical, and experience with the universe. I try to grasp these things with my values: authenticity, creativity, & hospitality."
           link="More about me"
@@ -130,10 +132,10 @@ export const Main = () => {
           className="skillset"
           isHasHeading={true}
           heading="Skillset"
-          headingType="white"
+          headingColor="white"
           isHasText={true}
           text="With skills in over 4 different fields of design, I am the perfect person to hire when it comes to a full fledged project. Whatever your needs are, I can pretty much take on any challenge."
-          textType="white"
+          textColor="white"
         >
           <div className="card__container">
             {SKILLSET_CARDS.map((skillsetCard) => (
@@ -163,7 +165,7 @@ export const Main = () => {
           className="project"
           isHasHeading={true}
           heading="Work that I’ve done for the past 8 years"
-          headingType="white"
+          headingColor="white"
           isHasSubHeading={true}
           subheading="MY PROJECTS"
         >
@@ -172,7 +174,8 @@ export const Main = () => {
           ))}
           <Button className="project__button">VIEW ALL PROJECTS</Button>
         </Section>
-        <SocialSectionWhite
+        <SectionSocialWhite
+          id="instagram"
           heading="Instagram"
           text="If you area a person who enjoys photography, then I highly recommend that you check out my Instagram. I’m an avid traveller and I capture the best moments that I would love to cherish with the world"
           link="More about me"
@@ -182,13 +185,13 @@ export const Main = () => {
           className="dribble"
           isHasHeading={true}
           heading="Dribbble"
-          headingType="white"
+          headingColor="white"
           isHasLink={true}
           link="Follow me on Dribbble"
-          linkType="white"
+          linkColor="white"
           isHasText={true}
           text="Each dribbble shot is made with love and care. Do check out my work on Dribbble. Likes and comments are appreciated."
-          textType="white"
+          textColor="white"
         >
           <img
             className="dribble__img"
@@ -206,13 +209,13 @@ export const Main = () => {
           className="about"
           isHasHeading={true}
           heading="This is what people say about me"
-          headingType="white"
+          headingColor="white"
           isHasText={true}
           text="Here are a few lines from people who I have worked with over the past 8+ years in my design career."
-          textType="white"
+          textColor="white"
           isHasLink={true}
           link="See all testimonials"
-          linkType="white"
+          linkColor="white"
         >
           <div className="card__container">
             {ABOUT_CARDS.map((aboutCard) => (
@@ -224,20 +227,21 @@ export const Main = () => {
           className="photography"
           isHasHeading={true}
           heading="Photography"
-          headingType="white"
+          headingColor="white"
           isHasText={true}
           text="Here is a collection of my best travel pictures that I took while travelling places all around the world. "
-          textType="white"
+          textColor="white"
         >
           <div className="photography__button-container">
             {PHOTOGRAPHY_BUTTONS.map((photographyButton) => (
               <Button
                 key={photographyButton.id}
                 size="small"
-                className={`photography__button ${activePhotographyButton === photographyButton.id
+                className={`photography__button ${
+                  activePhotographyButton === photographyButton.id
                     ? "photography__button--active"
                     : ""
-                  }`}
+                }`}
                 onClick={() => handlePhotographyButtonClick(photographyButton.id)}
               >
                 {photographyButton.text}
@@ -268,15 +272,32 @@ export const Main = () => {
             </AnimatePresence>
           )}
         </Section>
-        <Section className="feedback" isHasHeading={true} heading="Let’s get started" headingType="white" isHasText={true} text="Now that you know a lot about me, let me know if you are interested to work with me." textType="white">
+        <Section
+          className="feedback"
+          isHasHeading={true}
+          heading="Let’s get started"
+          headingColor="white"
+          isHasText={true}
+          text="Now that you know a lot about me, let me know if you are interested to work with me."
+          textColor="white"
+        >
           <form action="" className="feedback__form">
             {FEEDBACK_FIELDS.map((field) => (
-              <Field key={field.id} type={field.type} tagName={field.tagName} label={field.label} id={field.id} />
+              <Field
+                key={field.id}
+                type={field.type}
+                tagName={field.tagName}
+                label={field.label}
+                id={field.id}
+              />
             ))}
-            <Button type="submit" className="feedback__button">Let’s get started</Button>
+            <Button type="submit" className="feedback__button">
+              Let’s get started
+            </Button>
           </form>
         </Section>
       </main>
+      <Footer />
     </>
   );
 };

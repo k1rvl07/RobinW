@@ -1,0 +1,1 @@
+export { SectionSocialWhite } from "./SectionSocialWhite";

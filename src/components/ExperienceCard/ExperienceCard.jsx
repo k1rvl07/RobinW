@@ -13,7 +13,7 @@ export const ExperienceCard = ({ experienceCard }) => {
         <span className={`card__company ${companyColorClass}`}>{experienceCard.company}</span>,{" "}
         {experienceCard.profession}
       </Heading>
-      <Text type="white" className="card__text" size="small">
+      <Text color="white" className="card__text" size="small">
         {experienceCard.text}
       </Text>
     </div>
